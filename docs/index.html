@@ -3,42 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donald Filimon | Professional Profile</title>
+    <title>Donald Filimon • Professional Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Apple Design System Variables */
+        /* Apple Design System */
         :root {
             /* Typography */
-            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+            --sf-pro: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
             
             /* Colors */
-            --color-blue: #0071e3;
-            --color-blue-dark: #0066CC;
-            --color-blue-light: #2997FF;
-            --color-dark: #1d1d1f;
-            --color-gray-light: #f5f5f7;
-            --color-gray-medium: #86868b;
-            --color-gray-border: rgba(0, 0, 0, 0.1);
+            --apple-blue: #0071e3;
+            --apple-dark: #1d1d1f;
+            --apple-gray-light: #f5f5f7;
+            --apple-gray-medium: #86868b;
+            --apple-border: rgba(0, 0, 0, 0.1);
             
-            /* Gradients & Effects */
-            --gradient-hero: linear-gradient(135deg, #42a1ec 0%, #0070c9 100%);
-            --gradient-accent: linear-gradient(90deg, #42a1ec 0%, #2997FF 100%);
-            --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.08);
-            --glow-blue: 0 0 20px rgba(0, 113, 227, 0.15);
-            
-            /* Spacing & Sizing */
-            --space-xs: 0.5rem;
-            --space-sm: 0.75rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-xxl: 3rem;
-            --border-radius: 16px;
-            --border-radius-sm: 8px;
-            --border-radius-pill: 100px;
+            /* Effects */
+            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --blue-glow: 0 0 30px rgba(0, 113, 227, 0.15);
+            --border-radius: 12px;
         }
         
-        /* Reset & Base Styles */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -46,192 +32,244 @@
         }
         
         body {
-            font-family: var(--font-primary);
-            background-color: var(--color-gray-light);
-            color: var(--color-dark);
-            line-height: 1.47059;
+            font-family: var(--sf-pro);
+            background-color: var(--apple-gray-light);
+            color: var(--apple-dark);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            padding: var(--space-xl);
-            font-size: 16px;
+            padding: 0;
+            margin: 0;
         }
         
         /* Layout */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
-        .resume {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-        
-        /* Sidebar Styles */
-        .sidebar {
-            background-color: var(--color-dark);
+        .header {
+            background-color: var(--apple-dark);
             color: white;
-            padding: var(--space-xl);
+            padding: 4rem 2rem;
             position: relative;
             overflow: hidden;
         }
         
-        .sidebar::before {
+        .header::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(66, 161, 236, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(105, 171, 245, 0.3), transparent 70%);
             pointer-events: none;
         }
         
-        .profile {
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
             position: relative;
-            text-align: center;
-            padding-bottom: var(--space-xl);
-            margin-bottom: var(--space-xl);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
         }
         
-        .profile-initial {
-            width: 120px;
-            height: 120px;
-            background: var(--gradient-hero);
-            border-radius: 50%;
-            margin: 0 auto var(--space-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .main-content {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Typography */
+        .name {
             font-size: 3.5rem;
             font-weight: 600;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, white 0%, #69abf5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .profile-name {
+        .title {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            letter-spacing: -0.02em;
-        }
-        
-        .profile-title {
-            font-size: 0.95rem;
+            font-weight: 400;
             opacity: 0.8;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 1.5rem;
         }
         
-        .contact-list {
-            list-style: none;
+        /* Contact Bar */
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: var(--space-lg);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        .contact-item:last-child {
-            margin-bottom: 0;
+        .contact-item:hover {
+            color: #69abf5;
         }
         
-        .contact-icon {
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+        .contact-item i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Card Styles */
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--blue-glow);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--apple-border);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 113, 227, 0.1);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: var(--space-md);
-            flex-shrink: 0;
-            transition: background-color 0.2s ease;
+            color: var(--apple-blue);
+            margin-right: 1rem;
         }
         
-        .contact-item:hover .contact-icon {
-            background-color: var(--color-blue);
-        }
-        
-        .contact-info {
-            font-size: 0.9rem;
-        }
-        
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .contact-info a:hover {
-            color: var(--color-blue-light);
-        }
-        
-        .sidebar-section {
-            margin-top: var(--space-xxl);
-        }
-        
-        .sidebar-title {
-            font-size: 1.1rem;
+        .card-title {
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: var(--space-lg);
+            color: var(--apple-dark);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        /* Summary */
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--apple-dark);
+            margin-bottom: 1rem;
+        }
+        
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: var(--space-sm);
         }
         
-        .sidebar-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--color-blue);
+        .experience-item:last-child {
+            margin-bottom: 0;
         }
         
-        .skill-list {
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+        
+        .company {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--apple-dark);
+        }
+        
+        .period {
+            font-size: 0.9rem;
+            color: var(--apple-gray-medium);
+        }
+        
+        .achievements {
             list-style: none;
         }
         
-        .skill-category {
-            margin-bottom: var(--space-lg);
+        .achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
         }
         
-        .skill-category-name {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: var(--space-sm);
-            color: var(--color-blue-light);
+        .achievements li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--apple-blue);
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
         }
         
         .skill-item {
             display: flex;
-            margin-bottom: var(--space-sm);
-            align-items: center;
+            flex-direction: column;
+            background-color: rgba(0, 113, 227, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background-color: rgba(0, 113, 227, 0.1);
         }
         
         .skill-name {
-            flex: 1;
-            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
         
         .skill-level {
-            width: 100px;
-            height: 6px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius-pill);
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             overflow: hidden;
         }
         
         .skill-level-fill {
             height: 100%;
-            background: var(--gradient-accent);
+            background-color: var(--apple-blue);
         }
         
         .expert .skill-level-fill {
@@ -246,113 +284,37 @@
             width: 65%;
         }
         
-        .education-item {
-            margin-bottom: var(--space-lg);
-        }
-        
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .education-degree {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .education-details {
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-        
-        /* Main Content Styles */
-        .main-content {
-            padding: var(--space-xxl);
-        }
-        
-        .section {
-            margin-bottom: var(--space-xxl);
-        }
-        
-        .section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 113, 227, 0.07);
-            color: var(--color-blue);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: var(--space-md);
-            font-size: 1.2rem;
-        }
-        
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--color-dark);
-            letter-spacing: -0.02em;
-        }
-        
-        .summary {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--color-dark);
-            margin-bottom: var(--space-xl);
-            padding-left: calc(40px + var(--space-md));
-        }
-        
-        .experience-item {
-            margin-bottom: var(--space-xl);
-            position: relative;
-        }
-        
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: var(--space-md);
-            padding-left: calc(40px + var(--space-md));
-        }
-        
-        .company-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-dark);
-        }
-        
-        .experience-period {
-            font-size: 0.9rem;
-            color: var(--color-gray-medium);
-        }
-        
-        .experience-list {
+        /* Areas of Focus */
+        .focus-list {
             list-style: none;
-            padding-left: calc(40px + var(--space-md));
         }
         
-        .experience-list li {
+        .focus-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .focus-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .focus-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-dark);
+        }
+        
+        .focus-points {
+            list-style: none;
+        }
+        
+        .focus-points li {
             position: relative;
             padding-left: 1.5rem;
-            margin-bottom: var(--space-md);
+            margin-bottom: 0.5rem;
             line-height: 1.5;
         }
         
-        .experience-list li::before {
+        .focus-points li::before {
             content: "";
             position: absolute;
             left: 0;
@@ -360,475 +322,468 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: var(--color-blue);
+            background-color: var(--apple-blue);
         }
         
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-lg);
-            padding-left: calc(40px + var(--space-md));
+        /* Education */
+        .education-list {
+            list-style: none;
         }
         
-        .project-card {
-            background-color: white;
-            border-radius: var(--border-radius-sm);
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-gray-border);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--glow-blue);
-            border-color: rgba(0, 113, 227, 0.3);
-        }
-        
-        .project-header {
-            background: var(--gradient-hero);
-            color: white;
-            padding: var(--space-md);
-        }
-        
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .project-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .project-content {
-            padding: var(--space-md);
-        }
-        
-        .project-technologies {
+        .education-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-bottom: var(--space-md);
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
         }
         
-        .project-tech {
-            font-size: 0.8rem;
-            background-color: rgba(0, 113, 227, 0.07);
-            color: var(--color-blue);
-            padding: 0.2rem 0.6rem;
-            border-radius: var(--border-radius-pill);
+        .education-item:last-child {
+            margin-bottom: 0;
         }
         
-        .project-impact {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-        }
-        
-        .project-description {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: var(--color-gray-medium);
-        }
-        
-        .core-competencies {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: var(--space-lg);
-            padding-left: calc(40px + var(--space-md));
-        }
-        
-        .competency-card {
-            background-color: rgba(0, 113, 227, 0.03);
-            border-radius: var(--border-radius-sm);
-            padding: var(--space-lg);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-gray-border);
-        }
-        
-        .competency-card:hover {
-            background-color: rgba(0, 113, 227, 0.07);
-            transform: translateY(-3px);
-        }
-        
-        .competency-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto var(--space-md);
-            background-color: white;
-            border-radius: 50%;
+        .education-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(0, 113, 227, 0.1);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-blue);
-            font-size: 1.3rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            color: var(--apple-blue);
+            margin-right: 1rem;
+            flex-shrink: 0;
         }
         
-        .competency-title {
-            font-size: 0.95rem;
+        .education-details {
+            flex: 1;
+        }
+        
+        .degree {
             font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--apple-dark);
+        }
+        
+        .school {
+            font-size: 0.9rem;
+            color: var(--apple-gray-medium);
+        }
+        
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .metric-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--blue-glow);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--apple-dark);
             line-height: 1.4;
         }
         
-        /* Responsive Design */
+        /* Research Implications */
+        .implications-list {
+            list-style: none;
+        }
+        
+        .implication-item {
+            margin-bottom: 1.25rem;
+        }
+        
+        .implication-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .implication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-dark);
+        }
+        
+        .implication-desc {
+            color: var(--apple-gray-medium);
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--apple-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        
+        .footer p {
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Adjustments */
         @media (max-width: 900px) {
-            .resume {
+            .two-column {
                 grid-template-columns: 1fr;
             }
             
-            .sidebar {
-                padding: var(--space-xl) var(--space-xxl);
-            }
-            
-            .profile {
-                text-align: center;
-            }
-            
-            .contact-list {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: var(--space-lg);
-            }
-            
-            .contact-item {
-                margin-bottom: 0;
-            }
-            
-            .skill-list, .education-list {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: var(--space-lg);
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 600px) {
-            body {
-                padding: var(--space-md);
+            .header {
+                padding: 3rem 1.5rem;
             }
             
-            .sidebar, .main-content {
-                padding: var(--space-lg);
+            .name {
+                font-size: 2.5rem;
             }
             
-            .profile-initial {
-                width: 100px;
-                height: 100px;
-                font-size: 3rem;
+            .title {
+                font-size: 1.2rem;
             }
             
-            .contact-list, .skill-list, .education-list {
-                display: block;
+            .main-content {
+                padding: 2rem 1.5rem;
             }
             
-            .contact-item {
-                margin-bottom: var(--space-md);
-            }
-            
-            .section-header {
+            .contact-bar {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: var(--space-sm);
+                gap: 1rem;
             }
             
-            .summary, .experience-header, .experience-list {
-                padding-left: 0;
-            }
-            
-            .projects-grid, .core-competencies {
+            .metrics-grid {
                 grid-template-columns: 1fr;
-                padding-left: 0;
             }
             
             .experience-header {
                 flex-direction: column;
-                gap: var(--space-xs);
+                gap: 0.5rem;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="resume">
-            <!-- Sidebar Section -->
-            <aside class="sidebar">
-                <div class="profile">
-                    <div class="profile-initial">D</div>
-                    <h1 class="profile-name">Donald Filimon</h1>
-                    <p class="profile-title">Machine Learning & Open Source Developer</p>
-                    
-                    <ul class="contact-list">
-                        <li class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-info">
-                                <a href="mailto:cbkshadow@gmail.com">cbkshadow@gmail.com</a>
-                            </div>
-                        </li>
-                        <li class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-info">
-                                <a href="tel:8132030312">(813) 203-0312</a>
-                            </div>
-                        </li>
-                        <li class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="contact-info">
-                                <a href="https://linkedin.com/in/donaldfilimon" target="_blank">linkedin.com/in/donaldfilimon</a>
-                            </div>
-                        </li>
-                        <li class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-info">
-                                <a href="https://github.com/underswitchx" target="_blank">github.com/underswitchx</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Donald Filimon</h1>
+                <h2 class="title">Machine Learning & Open Source Developer</h2>
                 
-                <div class="sidebar-section">
-                    <h2 class="sidebar-title">Technical Skills</h2>
-                    <div class="skill-list">
-                        <div class="skill-category">
-                            <div class="skill-category-name">Programming Languages</div>
-                            <div class="skill-item expert">
-                                <div class="skill-name">Python</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item advanced">
-                                <div class="skill-name">C++</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item proficient">
-                                <div class="skill-name">Swift</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <div class="skill-category-name">AI & Machine Learning</div>
-                            <div class="skill-item expert">
-                                <div class="skill-name">Deep Learning</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item advanced">
-                                <div class="skill-name">Reinforcement Learning</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item expert">
-                                <div class="skill-name">Predictive Modeling</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item advanced">
-                                <div class="skill-name">NLP</div>
-                                <div class="skill-level">
-                                    <div class="skill-level-fill"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="contact-bar">
+                    <a href="mailto:cbkshadow@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        cbkshadow@gmail.com
+                    </a>
+                    <a href="tel:8132030312" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        (813) 203-0312
+                    </a>
+                    <a href="https://linkedin.com/in/donaldfilimon" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        linkedin.com/in/donaldfilimon
+                    </a>
+                    <a href="https://github.com/underswitchx" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        github.com/underswitchx
+                    </a>
                 </div>
-                
-                <div class="sidebar-section">
-                    <h2 class="sidebar-title">Education</h2>
-                    <div class="education-item">
-                        <div class="education-degree">B.Sc. Computer Science</div>
-                        <div class="education-details">University of Florida, 2017</div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Executive Summary Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div class="education-item">
-                        <div class="education-degree">Machine Learning Specialist</div>
-                        <div class="education-details">Coursera, 2021</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="education-degree">Swift Programming Certification</div>
-                        <div class="education-details">Apple Developer Academy, 2019</div>
-                    </div>
+                    <h3 class="card-title">Executive Summary</h3>
                 </div>
-            </aside>
-            
-            <!-- Main Content Section -->
-            <main class="main-content">
-                <section class="section">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h2 class="section-title">Professional Summary</h2>
-                    </div>
+                <div class="card-content">
                     <p class="summary">
-                        Innovative software engineer and AI specialist with expertise in LLVM, Swift, and machine learning. With a proven track record at Apple Inc. and previous organizations, demonstrating exceptional abilities in compiler optimization, AI-driven solutions, and large-scale system development. Technical proficiency spans multiple programming languages and frameworks, with particular emphasis on Python, C++, and Swift.
+                        Experienced software engineer specializing in LLVM, Swift, and machine learning technologies. With a proven track record in compiler optimization and AI-driven solutions, I've demonstrated significant contributions to software performance and efficiency. My work focuses on developing self-hosted AI projects that prioritize user autonomy and data security, reflecting my commitment to ethical AI development practices.
                     </p>
-                </section>
-                
-                <section class="section">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h2 class="section-title">Professional Experience</h2>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-name">Apple Inc.</div>
-                            <div class="experience-period">2018 - Present</div>
-                        </div>
-                        <ul class="experience-list">
-                            <li>Optimized LLVM and Swift compiler performance, achieving a 15% reduction in compile times</li>
-                            <li>Developed sophisticated machine learning models that improved predictive accuracy by 20%, enhancing AI-driven developer tools</li>
-                            <li>Led and managed self-hosted AI projects with emphasis on system efficiency and data privacy</li>
-                            <li>Contributed to open-source initiatives that expanded Apple's developer ecosystem</li>
-                            <li>Implemented performance engineering techniques that improved system responsiveness</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-name">Previous Company</div>
-                            <div class="experience-period">2016 - 2018</div>
-                        </div>
-                        <ul class="experience-list">
-                            <li>Designed and implemented machine learning algorithms for large-scale data processing, resulting in a 30% boost in operational efficiency</li>
-                            <li>Enhanced software architecture to improve scalability, enabling support for 50% more concurrent users</li>
-                            <li>Developed innovative technical solutions to address complex system challenges</li>
-                            <li>Collaborated with cross-functional teams to deliver high-quality software products</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h2 class="section-title">Significant Projects</h2>
-                    </div>
-                    
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h3 class="project-title">Abbey & Aviva</h3>
-                                <p class="project-subtitle">AI Assistant for Software Automation</p>
+                </div>
+            </div>
+            
+            <!-- Two Column Layout -->
+            <div class="two-column">
+                <!-- Left Column -->
+                <div>
+                    <!-- Professional Experience Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-briefcase"></i>
                             </div>
-                            <div class="project-content">
-                                <div class="project-technologies">
-                                    <span class="project-tech">Python</span>
-                                    <span class="project-tech">Natural Language Processing</span>
+                            <h3 class="card-title">Professional Experience</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="company">Apple Inc.</div>
+                                    <div class="period">2018 - Present</div>
                                 </div>
-                                <p class="project-impact">Reduced coding time by 40% through intelligent automation</p>
-                                <p class="project-description">
-                                    A sophisticated AI assistant designed to streamline software development processes by automating routine coding tasks, providing intelligent code suggestions, and facilitating efficient development workflows.
-                                </p>
+                                <ul class="achievements">
+                                    <li>Optimized LLVM and Swift compiler performance, achieving 15% reduction in compile times</li>
+                                    <li>Developed machine learning models with 20% improvement in predictive accuracy</li>
+                                    <li>Led initiatives for self-hosted AI projects with emphasis on efficiency and data privacy</li>
+                                </ul>
                             </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h3 class="project-title">WDBX (Webuix)</h3>
-                                <p class="project-subtitle">Self-hosted WebUI for Large Language Models</p>
-                            </div>
-                            <div class="project-content">
-                                <div class="project-technologies">
-                                    <span class="project-tech">Python</span>
-                                    <span class="project-tech">Docker</span>
+                            
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div class="company">Previous Company</div>
+                                    <div class="period">2016 - 2018</div>
                                 </div>
-                                <p class="project-impact">Successfully scaled to support over 100 concurrent users</p>
-                                <p class="project-description">
-                                    A robust web-based user interface enabling efficient deployment and management of Large Language Models in self-hosted environments, emphasizing security, scalability, and user-friendly interaction.
-                                </p>
+                                <ul class="achievements">
+                                    <li>Designed machine learning algorithms for large-scale data processing, increasing efficiency by 30%</li>
+                                    <li>Enhanced software scalability to support 50% increase in concurrent users</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h2 class="section-title">Core Competencies</h2>
                     </div>
                     
-                    <div class="core-competencies">
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-microchip"></i>
+                    <!-- Notable Achievements Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-award"></i>
                             </div>
-                            <h3 class="competency-title">Compiler Performance Optimization</h3>
+                            <h3 class="card-title">Notable Achievements</h3>
                         </div>
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-brain"></i>
+                        <div class="card-content">
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-value">15%</div>
+                                    <div class="metric-label">Reduction in compiler performance times</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">20%</div>
+                                    <div class="metric-label">Improvement in ML predictive accuracy</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">30%</div>
+                                    <div class="metric-label">Efficiency boost in data processing</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">50%</div>
+                                    <div class="metric-label">Increase in concurrent user support</div>
+                                </div>
                             </div>
-                            <h3 class="competency-title">Machine Learning Model Development</h3>
                         </div>
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h3 class="competency-title">AI-driven Developer Tools</h3>
-                        </div>
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h3 class="competency-title">Self-hosted AI Projects</h3>
-                        </div>
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h3 class="competency-title">Large-scale Data Algorithms</h3>
-                        </div>
-                        <div class="competency-card">
-                            <div class="competency-icon">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </div>
-                            <h3 class="competency-title">Software Scalability Improvement</h3>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h2 class="section-title">Collaborative Opportunities</h2>
                     </div>
                     
-                    <ul class="experience-list">
-                        <li>Collaborative research initiatives in AI and machine learning</li>
-                        <li>Contributing to impactful open-source projects</li>
-                        <li>Software engineering roles focusing on ML & AI innovation</li>
-                        <li>Mentoring and knowledge-sharing opportunities in compiler optimization and machine learning integration</li>
-                    </ul>
-                </section>
-            </main>
-        </div>
+                    <!-- Research Implications Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="card-title">Research Implications</h3>
+                        </div>
+                        <div class="card-content">
+                            <ul class="implications-list">
+                                <li class="implication-item">
+                                    <div class="implication-title">Privacy-Centric AI Development</div>
+                                    <div class="implication-desc">My focus on self-hosted AI solutions indicates a commitment to data privacy and security, addressing growing concerns about data sovereignty in AI applications.</div>
+                                </li>
+                                <li class="implication-item">
+                                    <div class="implication-title">Compiler Efficiency</div>
+                                    <div class="implication-desc">Improvements in compile times directly impact developer productivity, with optimization techniques having broader applications beyond Apple's ecosystem.</div>
+                                </li>
+                                <li class="implication-item">
+                                    <div class="implication-title">Scalable AI Systems</div>
+                                    <div class="implication-desc">Experience with large-scale data processing demonstrates expertise in building systems that can handle increasing computational demands, particularly relevant as AI models continue to grow in size and complexity.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div>
+                    <!-- Technical Skills Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="card-title">Technical Expertise</h3>
+                        </div>
+                        <div class="card-content">
+                            <h4 style="margin-bottom: 1rem;">Programming Languages</h4>
+                            <div class="skills-grid" style="margin-bottom: 1.5rem;">
+                                <div class="skill-item expert">
+                                    <div class="skill-name">Python</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item advanced">
+                                    <div class="skill-name">C++</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item proficient">
+                                    <div class="skill-name">Swift</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 style="margin-bottom: 1rem;">Specialized Areas</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item expert">
+                                    <div class="skill-name">AI & ML</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item advanced">
+                                    <div class="skill-name">Reinforcement Learning</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item advanced">
+                                    <div class="skill-name">NLP</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item expert">
+                                    <div class="skill-name">Compiler Optimization</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item advanced">
+                                    <div class="skill-name">LLVM Architecture</div>
+                                    <div class="skill-level">
+                                        <div class="skill-level-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Research Interests Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3 class="card-title">Research Interests</h3>
+                        </div>
+                        <div class="card-content">
+                            <ul class="focus-list">
+                                <li class="focus-category">
+                                    <div class="focus-title">Compiler Optimization Techniques</div>
+                                    <ul class="focus-points">
+                                        <li>Performance enhancement in LLVM-based compilers</li>
+                                        <li>Swift compiler optimization strategies</li>
+                                        <li>Runtime efficiency improvements</li>
+                                    </ul>
+                                </li>
+                                <li class="focus-category">
+                                    <div class="focus-title">Self-Hosted AI Solutions</div>
+                                    <ul class="focus-points">
+                                        <li>Architecture design for privacy-preserving AI systems</li>
+                                        <li>Decentralized machine learning frameworks</li>
+                                        <li>On-device AI processing optimization</li>
+                                    </ul>
+                                </li>
+                                <li class="focus-category">
+                                    <div class="focus-title">Machine Learning Applications</div>
+                                    <ul class="focus-points">
+                                        <li>Predictive modeling for software systems</li>
+                                        <li>Efficiency optimization in AI/ML pipelines</li>
+                                        <li>NLP applications in development environments</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="card-title">Education</h3>
+                        </div>
+                        <div class="card-content">
+                            <ul class="education-list">
+                                <li class="education-item">
+                                    <div class="education-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="education-details">
+                                        <div class="degree">Bachelor of Science in Computer Science</div>
+                                        <div class="school">University of Florida, 2017</div>
+                                    </div>
+                                </li>
+                                <li class="education-item">
+                                    <div class="education-icon">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <div class="education-details">
+                                        <div class="degree">Machine Learning Specialist Certification</div>
+                                        <div class="school">Coursera, 2021</div>
+                                    </div>
+                                </li>
+                                <li class="education-item">
+                                    <div class="education-icon">
+                                        <i class="fab fa-apple"></i>
+                                    </div>
+                                    <div class="education-details">
+                                        <div class="degree">Swift Programming Certification</div>
+                                        <div class="school">Apple Developer Academy, 2019</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Donald Filimon. Inspiring innovation through technology and creativity.</p>
+        </footer>
     </div>
 </body>
 </html>
