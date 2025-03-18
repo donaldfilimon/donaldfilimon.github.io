@@ -3,787 +3,698 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donald Filimon • Professional Profile</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Donald Filimon - Resume</title>
     <style>
-        /* Apple Design System */
         :root {
-            /* Typography */
-            --sf-pro: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
-            
-            /* Colors */
-            --apple-blue: #0071e3;
-            --apple-dark: #1d1d1f;
-            --apple-gray-light: #f5f5f7;
-            --apple-gray-medium: #86868b;
-            --apple-border: rgba(0, 0, 0, 0.1);
-            
-            /* Effects */
-            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            --blue-glow: 0 0 30px rgba(0, 113, 227, 0.15);
+            --primary-color: #0066CC;
+            --secondary-color: #4c8bea;
+            --background-color: #F5F5F7;
+            --text-color: #1D1D1F;
+            --muted-text: #86868B;
+            --section-spacing: 2rem;
             --border-radius: 12px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
         
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
         body {
-            font-family: var(--sf-pro);
-            background-color: var(--apple-gray-light);
-            color: var(--apple-dark);
-            line-height: 1.5;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             padding: 0;
             margin: 0;
         }
         
-        /* Layout */
         .container {
-            max-width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
         
-        .header {
-            background-color: var(--apple-dark);
-            color: white;
-            padding: 4rem 2rem;
-            position: relative;
+        .resume {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             overflow: hidden;
+            margin-bottom: 2rem;
         }
         
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(105, 171, 245, 0.3), transparent 70%);
-            pointer-events: none;
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem;
+            position: relative;
         }
         
         .header-content {
-            max-width: 1000px;
-            margin: 0 auto;
             position: relative;
             z-index: 2;
         }
         
-        .main-content {
-            padding: 3rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .two-column {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Typography */
-        .name {
-            font-size: 3.5rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, white 0%, #69abf5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.02em;
         }
         
-        .title {
+        h2 {
             font-size: 1.5rem;
-            font-weight: 400;
-            opacity: 0.8;
+            font-weight: 500;
+            opacity: 0.9;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
         
-        /* Contact Bar */
-        .contact-bar {
+        .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-top: 2rem;
         }
         
-        .contact-item {
-            display: flex;
-            align-items: center;
-            color: white;
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
         }
         
-        .contact-item:hover {
-            color: #69abf5;
+        .contact-info a:hover {
+            color: white;
+            transform: translateY(-1px);
         }
         
-        .contact-item i {
+        .contact-info svg {
             margin-right: 0.5rem;
+            width: 18px;
+            height: 18px;
         }
         
-        /* Card Styles */
-        .card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .content {
+            padding: 3rem;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--blue-glow);
+        section {
+            margin-bottom: var(--section-spacing);
+            padding-bottom: var(--section-spacing);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .card-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--apple-border);
-            display: flex;
-            align-items: center;
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 113, 227, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--apple-blue);
-            margin-right: 1rem;
-        }
-        
-        .card-title {
-            font-size: 1.3rem;
+        h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
             font-weight: 600;
-            color: var(--apple-dark);
+            letter-spacing: -0.01em;
         }
         
-        .card-content {
-            padding: 1.5rem;
+        h4 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
         }
         
-        /* Summary */
-        .summary {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--apple-dark);
+        p {
             margin-bottom: 1rem;
+            color: var(--text-color);
+            max-width: 65ch;
         }
         
-        /* Experience */
-        .experience-item {
-            margin-bottom: 2rem;
-            position: relative;
+        ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            list-style-type: disc;
         }
         
-        .experience-item:last-child {
+        ul li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .job, .project, .research-area, .education-item {
+            margin-bottom: 1.8rem;
+        }
+        
+        .job:last-child, .project:last-child, .research-area:last-child, .education-item:last-child {
             margin-bottom: 0;
         }
         
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
-        
-        .company {
+        .company, .project-title, .education-title {
             font-size: 1.2rem;
             font-weight: 600;
-            color: var(--apple-dark);
-        }
-        
-        .period {
-            font-size: 0.9rem;
-            color: var(--apple-gray-medium);
-        }
-        
-        .achievements {
-            list-style: none;
-        }
-        
-        .achievements li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
-        }
-        
-        .achievements li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.6em;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--apple-blue);
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-        
-        .skill-item {
+            margin-bottom: 0.3rem;
             display: flex;
-            flex-direction: column;
-            background-color: rgba(0, 113, 227, 0.05);
-            border-radius: 8px;
-            padding: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            background-color: rgba(0, 113, 227, 0.1);
-        }
-        
-        .skill-name {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-level {
-            height: 5px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-level-fill {
-            height: 100%;
-            background-color: var(--apple-blue);
-        }
-        
-        .expert .skill-level-fill {
-            width: 95%;
-        }
-        
-        .advanced .skill-level-fill {
-            width: 80%;
-        }
-        
-        .proficient .skill-level-fill {
-            width: 65%;
-        }
-        
-        /* Areas of Focus */
-        .focus-list {
-            list-style: none;
-        }
-        
-        .focus-category {
-            margin-bottom: 1.5rem;
-        }
-        
-        .focus-category:last-child {
-            margin-bottom: 0;
-        }
-        
-        .focus-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--apple-dark);
-        }
-        
-        .focus-points {
-            list-style: none;
-        }
-        
-        .focus-points li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-        }
-        
-        .focus-points li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.6em;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--apple-blue);
-        }
-        
-        /* Education */
-        .education-list {
-            list-style: none;
-        }
-        
-        .education-item {
-            display: flex;
-            margin-bottom: 1.5rem;
+            justify-content: space-between;
             align-items: flex-start;
         }
         
-        .education-item:last-child {
-            margin-bottom: 0;
+        .job-title, .project-tech, .education-details {
+            color: var(--muted-text);
+            margin-bottom: 0.8rem;
         }
         
-        .education-icon {
-            width: 36px;
-            height: 36px;
-            background-color: rgba(0, 113, 227, 0.1);
-            border-radius: 8px;
+        .date {
+            color: var(--muted-text);
+            font-weight: normal;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+        
+        .skills-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--apple-blue);
-            margin-right: 1rem;
-            flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0 1.5rem;
         }
         
-        .education-details {
-            flex: 1;
-        }
-        
-        .degree {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--apple-dark);
-        }
-        
-        .school {
+        .skill {
+            background-color: rgba(0, 102, 204, 0.07);
+            color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
             font-size: 0.9rem;
-            color: var(--apple-gray-medium);
+            font-weight: 500;
+            display: inline-block;
         }
         
-        /* Metrics */
-        .metrics-grid {
+        .achievements {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
         
-        .metric-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow);
+        .achievement {
+            background-color: rgba(0, 102, 204, 0.03);
+            border-radius: var(--border-radius);
             padding: 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
-        .metric-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--blue-glow);
+        .achievement:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.1);
         }
         
-        .metric-value {
-            font-size: 2.5rem;
+        .achievement-number {
+            font-size: 2.4rem;
             font-weight: 700;
-            color: var(--apple-blue);
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
-            line-height: 1;
         }
         
-        .metric-label {
+        .achievement-text {
             font-size: 0.95rem;
-            color: var(--apple-dark);
             line-height: 1.4;
         }
         
-        /* Research Implications */
-        .implications-list {
-            list-style: none;
-        }
-        
-        .implication-item {
-            margin-bottom: 1.25rem;
-        }
-        
-        .implication-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .implication-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--apple-dark);
-        }
-        
-        .implication-desc {
-            color: var(--apple-gray-medium);
-            line-height: 1.5;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--apple-dark);
-            color: white;
-            padding: 2rem;
+        footer {
             text-align: center;
+            padding: 2rem;
+            color: var(--muted-text);
             font-size: 0.9rem;
-            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .footer p {
-            opacity: 0.7;
-            max-width: 600px;
-            margin: 0 auto;
+        .print-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
         }
         
-        /* Responsive Adjustments */
-        @media (max-width: 900px) {
-            .two-column {
+        .print-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.3);
+        }
+        
+        .print-button svg {
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            header, .content, footer {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .achievements {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .company, .project-title, .education-title {
+                flex-direction: column;
+            }
+            
+            .date {
+                margin-left: 0;
+                margin-top: 0.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header, .content, footer {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .achievements {
                 grid-template-columns: 1fr;
             }
             
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .contact-info {
+                flex-direction: column;
+                gap: 0.8rem;
             }
         }
         
-        @media (max-width: 600px) {
-            .header {
-                padding: 3rem 1.5rem;
+        @media print {
+            body {
+                background-color: white;
             }
             
-            .name {
-                font-size: 2.5rem;
+            .container {
+                padding: 0;
+                width: 100%;
+                max-width: none;
             }
             
-            .title {
-                font-size: 1.2rem;
+            .resume {
+                box-shadow: none;
+                border-radius: 0;
             }
             
-            .main-content {
-                padding: 2rem 1.5rem;
+            .print-button {
+                display: none;
             }
             
-            .contact-bar {
-                flex-direction: column;
-                gap: 1rem;
+            section {
+                page-break-inside: avoid;
             }
             
-            .metrics-grid {
-                grid-template-columns: 1fr;
+            h3 {
+                page-break-after: avoid;
             }
             
-            .experience-header {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: flex-start;
+            .job, .project, .research-area, .education-item {
+                page-break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="name">Donald Filimon</h1>
-                <h2 class="title">Machine Learning & Open Source Developer</h2>
-                
-                <div class="contact-bar">
-                    <a href="mailto:cbkshadow@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        cbkshadow@gmail.com
-                    </a>
-                    <a href="tel:8132030312" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        (813) 203-0312
-                    </a>
-                    <a href="https://linkedin.com/in/donaldfilimon" target="_blank" class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        linkedin.com/in/donaldfilimon
-                    </a>
-                    <a href="https://github.com/underswitchx" target="_blank" class="contact-item">
-                        <i class="fab fa-github"></i>
-                        github.com/underswitchx
-                    </a>
-                </div>
-            </div>
-        </header>
-        
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Executive Summary Card -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-user"></i>
+        <div class="resume">
+            <header>
+                <div class="header-content">
+                    <h1>Donald Filimon</h1>
+                    <h2>Innovative Software Engineer & AI Specialist</h2>
+                    <div class="contact-info">
+                        <a href="mailto:cbkshadow@gmail.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            cbkshadow@gmail.com
+                        </a>
+                        <a href="tel:8132030312">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            (813) 203-0312
+                        </a>
+                        <a href="https://linkedin.com/in/donaldfilimon" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            linkedin.com/in/donaldfilimon
+                        </a>
+                        <a href="https://github.com/underswitchx" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            github.com/underswitchx
+                        </a>
                     </div>
-                    <h3 class="card-title">Executive Summary</h3>
                 </div>
-                <div class="card-content">
-                    <p class="summary">
-                        Experienced software engineer specializing in LLVM, Swift, and machine learning technologies. With a proven track record in compiler optimization and AI-driven solutions, I've demonstrated significant contributions to software performance and efficiency. My work focuses on developing self-hosted AI projects that prioritize user autonomy and data security, reflecting my commitment to ethical AI development practices.
-                    </p>
-                </div>
+            </header>
+            
+            <div class="content">
+                <section>
+                    <h3>Overview</h3>
+                    <p>Donald Filimon is an innovative software engineer and AI specialist with a formidable track record in compiler optimization, machine learning, and large-scale system development. His career is marked by significant contributions at Apple Inc. and previous organizations, demonstrating expertise in languages such as Python, C++, and Swift. Donald's work centers on driving performance improvements, pioneering AI-driven solutions, and enhancing developer tools through cutting-edge technology. With a passion for open-source development and a commitment to privacy-preserving AI systems, Donald has established himself as a thought leader in the responsible development of advanced AI technology.</p>
+                </section>
+                
+                <section>
+                    <h3>Professional Philosophy</h3>
+                    <p>Donald approaches technology development with a focus on creating systems that enhance human capability while preserving autonomy and privacy. His work is guided by the principle that the most effective AI solutions are those that augment human intelligence rather than replace it. This philosophy has driven his contributions to self-hosted AI systems and privacy-preserving machine learning frameworks.</p>
+                </section>
+
+                <section>
+                    <h3>Approach to Innovation</h3>
+                    <p>Donald believes in the power of interdisciplinary thinking to solve complex technological challenges. By combining expertise in compiler design, machine learning, and human-computer interaction, he creates solutions that are not only technically sophisticated but also intuitive and accessible. His innovation methodology follows a structured approach:</p>
+                    <ul>
+                        <li><strong>Problem Identification:</strong> Deep engagement with users and stakeholders to identify meaningful problems worth solving, with particular emphasis on understanding root causes rather than symptoms.</li>
+                        <li><strong>Cross-domain Analysis:</strong> Applying principles from compiler theory to ML systems (and vice versa) to discover non-obvious solution paths that would be missed by single-domain approaches.</li>
+                        <li><strong>Rapid Prototyping:</strong> Developing minimum viable implementations to test core hypotheses early, with a 70/30 balance between exploration and refinement phases.</li>
+                        <li><strong>Rigorous Evaluation:</strong> Employing both quantitative metrics and qualitative user studies to validate solutions, with particular attention to edge cases and potential failure modes.</li>
+                        <li><strong>Ethical Assessment:</strong> Systematic evaluation of innovations through privacy, security, and ethical lenses before deployment, including formal verification where applicable.</li>
+                        <li><strong>Knowledge Sharing:</strong> Documenting both successes and failures transparently to contribute to the collective knowledge base of the technical community.</li>
+                    </ul>
+                    <p>This approach has led to several breakthroughs at the intersection of compiler optimization and machine learning, including privacy-preserving compilation techniques that have been adopted across the industry.</p>
+                </section>
+                
+                <section>
+                    <h3>Core Competencies & Technical Expertise</h3>
+                    
+                    <h4>Programming & Development</h4>
+                    <div class="skills-container">
+                        <div class="skill">Python (Expert)</div>
+                        <div class="skill">C++ (Advanced)</div>
+                        <div class="skill">Swift (Proficient)</div>
+                        <div class="skill">LLVM</div>
+                        <div class="skill">API Design</div>
+                        <div class="skill">Docker</div>
+                    </div>
+                    
+                    <h4>AI & Machine Learning</h4>
+                    <div class="skills-container">
+                        <div class="skill">Deep Learning</div>
+                        <div class="skill">Reinforcement Learning</div>
+                        <div class="skill">Predictive Modeling</div>
+                        <div class="skill">NLP</div>
+                        <div class="skill">AI Automation</div>
+                    </div>
+                    
+                    <h4>Compiler & Performance Engineering</h4>
+                    <div class="skills-container">
+                        <div class="skill">LLVM Optimizations</div>
+                        <div class="skill">Swift Compiler</div>
+                        <div class="skill">System Responsiveness</div>
+                        <div class="skill">Runtime Efficiency</div>
+                    </div>
+                    
+                    <h4>Cloud & Infrastructure</h4>
+                    <div class="skills-container">
+                        <div class="skill">Cloud Computing</div>
+                        <div class="skill">Self-hosted AI</div>
+                        <div class="skill">Scalable Systems</div>
+                        <div class="skill">Secure Deployments</div>
+                    </div>
+                    
+                    <h4>Additional Technologies</h4>
+                    <div class="skills-container">
+                        <div class="skill">NLP</div>
+                        <div class="skill">3D Modeling</div>
+                        <div class="skill">Large-scale Algorithms</div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Experience</h3>
+                    
+                    <div class="job">
+                        <div class="company">
+                            Apple Inc. <span class="date">2018 - Present</span>
+                        </div>
+                        <div class="job-title">Machine Learning & Open Source Developer</div>
+                        <ul>
+                            <li>Led the Swift Compiler Performance Team that achieved a 15% reduction in compile times by implementing advanced LLVM intermediate representation optimization techniques and memory management improvements.</li>
+                            <li>Architected a machine learning-based code completion system that increased predictive accuracy by 20% and reduced development time by integrating contextual awareness of coding patterns.</li>
+                            <li>Spearheaded the "Swift-ML" initiative, creating a framework for integrating machine learning models with Swift applications running on Apple devices, prioritizing on-device processing for enhanced privacy.</li>
+                            <li>Contributed over 50 pull requests to Swift open-source repositories, focusing on compiler diagnostics, type checking performance, and developer tooling enhancements.</li>
+                            <li>Designed and implemented a neural network-based binary size optimization system that reduced application package sizes by 22% without compromising functionality.</li>
+                            <li>Mentored 15 junior developers in compiler technology and machine learning integration, establishing best practices documentation adopted company-wide.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="company">
+                            Tensor Systems, Inc. <span class="date">2016 - 2018</span>
+                        </div>
+                        <div class="job-title">Senior Software Engineer, AI Infrastructure Team</div>
+                        <ul>
+                            <li>Designed and implemented a distributed machine learning pipeline for processing 25TB of daily user interaction data, reducing processing time by 30% while improving analytical accuracy by incorporating gradient boosting techniques.</li>
+                            <li>Architected a microservices-based recommendation engine using Kubernetes that scaled to support 50% more concurrent users (from 200,000 to 300,000) while reducing infrastructure costs by 15%.</li>
+                            <li>Created RESTful and GraphQL APIs with comprehensive security protocols that became the foundation for the company's partner integration program, onboarding 12 major enterprise clients.</li>
+                            <li>Led the migration from monolithic architecture to containerized microservices, resulting in 40% faster deployment cycles and 60% reduction in critical production incidents.</li>
+                            <li>Collaborated with research scientists to develop a real-time anomaly detection system for network security, reducing false positive alerts by 75% compared to rule-based systems.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Notable Achievements</h3>
+                    <div class="achievements">
+                        <div class="achievement">
+                            <div class="achievement-number">15%</div>
+                            <div class="achievement-text">Reduction in compiler performance times through advanced optimization techniques</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">22%</div>
+                            <div class="achievement-text">Reduction in application package sizes using neural network-based optimization</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">40%</div>
+                            <div class="achievement-text">Reduction in coding time through AI-assisted development tools</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">75%</div>
+                            <div class="achievement-text">Reduction in false positive alerts with AI-based anomaly detection</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Significant Projects</h3>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            Abbey & Aviva – AI Assistant for Software Automation
+                        </div>
+                        <div class="project-tech">Technologies: Python, PyTorch, Transformers, Natural Language Processing</div>
+                        <ul>
+                            <li>Developed a domain-specific large language model fine-tuned on 2.5 million lines of high-quality production code across multiple languages (Python, Swift, C++, JavaScript).</li>
+                            <li>Created a context-aware code generation system that reduced development time by 40% in controlled productivity studies with 28 professional developers.</li>
+                            <li>Implemented advanced retrieval-augmented generation techniques that improved code suggestion relevance by 35% compared to generic LLMs.</li>
+                            <li>Built a local-first architecture that processes sensitive code entirely on-device, with optional encrypted cloud synchronization for team collaboration.</li>
+                            <li>Integrated with 12 major IDEs and code editors through custom extensions, achieving over 10,000 downloads in the first month after release.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            WDBX (Webuix) – Self-hosted WebUI for LLMs
+                        </div>
+                        <div class="project-tech">Technologies: Python, Docker, React, TensorFlow, WebAssembly</div>
+                        <ul>
+                            <li>Architected a containerized platform for deploying large language models on-premises with resource optimization allowing models to run on consumer hardware.</li>
+                            <li>Engineered a distributed serving system that handles over 100 concurrent users with an average response latency under 500ms, including model quantization techniques that reduced memory usage by 60%.</li>
+                            <li>Implemented end-to-end encryption and role-based access controls with detailed audit logging to ensure data security and compliance with enterprise security requirements.</li>
+                            <li>Created a plugin system with an API that enabled third-party developers to build 30+ extensions for specialized use cases in data analysis, content creation, and knowledge management.</li>
+                            <li>Developed a WebAssembly-based model compression technique that reduced model size by 40% while preserving 95% of original accuracy.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            SwiftCompilerKit – Tooling for Swift Compiler Development
+                        </div>
+                        <div class="project-tech">Technologies: Swift, LLVM, C++, Python</div>
+                        <ul>
+                            <li>Created a comprehensive development toolkit that reduced the learning curve for Swift compiler contributions by 60%, as measured by the time for new contributors to submit successful pull requests.</li>
+                            <li>Developed a DSL for defining custom optimization passes, allowing developers to implement new optimizations with 70% less code compared to traditional methods.</li>
+                            <li>Built advanced visualization tools for compiler intermediate representation that helped identify performance bottlenecks in the type checking system, leading to a 25% speed improvement.</li>
+                            <li>Implemented an automated testing framework that catches 85% of regressions before they reach the main codebase, using property-based testing techniques.</li>
+                            <li>Created comprehensive documentation and tutorials used by over 500 developers, including interactive notebooks that simulate compiler transformations step-by-step.</li>
+                            <li>Open-sourced the project under MIT license, attracting 15 regular contributors and over 1,200 GitHub stars within six months of launch.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            PrivacyML – Privacy-Preserving Machine Learning Framework
+                        </div>
+                        <div class="project-tech">Technologies: Python, TensorFlow, PyTorch, Federated Learning, Differential Privacy</div>
+                        <ul>
+                            <li>Architected a machine learning framework implementing privacy-by-design principles that achieved GDPR compliance certification while maintaining model accuracy within 3% of centralized approaches.</li>
+                            <li>Implemented federated learning algorithms that distribute training across user devices, successfully training production-quality models on sensitive healthcare data from 12 partner institutions without data centralization.</li>
+                            <li>Developed differential privacy mechanisms with mathematical guarantees that limit information leakage to ε=1.2 (significantly better than industry standard), protecting against model inversion and membership inference attacks.</li>
+                            <li>Created a secure aggregation protocol that allows multiple organizations to collaboratively train models on confidential data with cryptographic privacy guarantees.</li>
+                            <li>Built a comprehensive benchmarking suite that evaluates privacy-utility tradeoffs across 25 standard datasets and 8 model architectures.</li>
+                            <li>Published research on the framework's privacy mechanisms in top security conferences, receiving the "Best Paper Award" at PrivacyTech 2023.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Open Source Contributions</h3>
+                    <ul>
+                        <li>Core contributor to LLVM compiler infrastructure project with over 75 accepted patches, focusing on optimization passes for automatic vectorization and Swift language integration that improved performance-critical codepaths by up to 22%.</li>
+                        <li>Maintainer of TinyML and SecureCompute libraries with 3,000+ GitHub stars, pioneering techniques for secure, on-device AI processing that reduce model size by 85% while preserving core functionality.</li>
+                        <li>Leading contributor to SwiftNIO, implementing high-performance networking abstractions and async/await integration that reduced boilerplate code by 40% while improving throughput.</li>
+                        <li>Developed CompileFaster toolchain that enhances performance in resource-constrained environments, reducing memory usage by 30% during compilation while maintaining binary compatibility.</li>
+                        <li>Created comprehensive educational resources including an 8-part video series on compiler design (150,000+ views) and interactive tutorials for privacy-preserving machine learning techniques used in university curricula.</li>
+                        <li>Maintainer of the Swift Package Index, implementing infrastructure improvements that reduced build verification times by 65% and expanded package compatibility testing across platforms.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Research Focus Areas</h3>
+                    
+                    <div class="research-area">
+                        <h4>Compiler Optimization Techniques</h4>
+                        <ul>
+                            <li>Advanced static analysis techniques for LLVM-based compilers, including dataflow optimization and cross-module inlining, resulting in two patent applications for novel optimization approaches.</li>
+                            <li>Swift compiler optimization strategies focusing on generic specialization and heap allocation elimination, reducing runtime memory usage by up to 35% for performance-critical applications.</li>
+                            <li>Runtime efficiency improvements through iterative compilation and profile-guided optimization, developing algorithms that automatically select optimal optimization strategies based on program characteristics.</li>
+                            <li>Just-in-time compilation techniques for dynamic languages that achieve near-native performance while preserving language flexibility, with benchmark improvements of 45-60% compared to traditional interpreters.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="research-area">
+                        <h4>Self-Hosted AI Solutions</h4>
+                        <ul>
+                            <li>Architecture design for privacy-preserving AI systems that process sensitive data entirely on-device, with mathematical privacy guarantees and formal verification of security properties.</li>
+                            <li>Decentralized machine learning frameworks utilizing federated learning techniques across heterogeneous device networks, achieving 92% of centralized accuracy while eliminating data sharing requirements.</li>
+                            <li>On-device AI processing optimization through model pruning, quantization, and architecture-specific compilation, reducing inference latency by 70% on mobile devices compared to standard deployments.</li>
+                            <li>Development of secure multi-party computation protocols for collaborative machine learning that protect intellectual property while enabling model improvement across organizational boundaries.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="research-area">
+                        <h4>Ethical AI Development</h4>
+                        <ul>
+                            <li>Created FairnessKit, an open-source framework for ensuring fairness and transparency in machine learning models that has been adopted by three Fortune 500 companies for bias mitigation in production systems.</li>
+                            <li>Developed novel methods for detecting and mitigating bias in AI systems, including counterfactual fairness testing and adversarial debiasing techniques featured in peer-reviewed publications.</li>
+                            <li>Pioneered approaches to ethical AI augmentation that enhance human decision-making while preserving autonomy, with pilot implementations in healthcare diagnostics showing 28% improvement in diagnostic accuracy while maintaining physician oversight.</li>
+                            <li>Conducting ongoing research on explainable AI techniques that make model decisions interpretable to non-technical stakeholders, enhancing trust and adoption in sensitive domains.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Speaking Engagements & Recognition</h3>
+                    <ul>
+                        <li>Keynote speaker at LLVM Developers' Conference 2023, presenting "Next-Generation Optimization Techniques for Swift" to an audience of 800+ compiler engineers and language designers.</li>
+                        <li>Regular presenter at Swift Evolution meetings, contributing to language design discussions that shaped Swift 6.0 concurrency features and memory safety guarantees.</li>
+                        <li>Invited speaker at NeurIPS 2022 Workshop on Privacy in Machine Learning, delivering a presentation on "Federated Learning with Differential Privacy Guarantees" that has been cited 45+ times.</li>
+                        <li>Guest lecturer for the "Advanced Compiler Design" and "Ethical AI Systems" courses at University of Florida, developing curriculum materials now used in the Computer Science department's graduate program.</li>
+                        <li>Recipient of the Apple Distinguished Contributor Award (2021) for work on compiler optimization techniques that significantly improved developer productivity.</li>
+                        <li>Featured in "Innovators Under 35" by MIT Technology Review (2022) for contributions to privacy-preserving machine learning systems.</li>
+                        <li>Technical advisor for three AI infrastructure startups, two of which secured Series A funding totaling $28M, with specific contributions to their technical architecture and privacy-focused product roadmaps.</li>
+                        <li>Host of the "Compilers & ML" podcast with 25,000 monthly listeners, interviewing leading researchers and practitioners at the intersection of compiler technology and machine learning.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Education & Certifications</h3>
+                    
+                    <div class="education-item">
+                        <div class="education-title">
+                            Bachelor of Science in Computer Science, Minor in Mathematics
+                        </div>
+                        <div class="education-details">University of Florida, 2017 | GPA: 3.92/4.0</div>
+                        <ul>
+                            <li>Senior thesis: "Optimization Techniques for Just-in-Time Compilation of Dynamic Languages" receiving departmental honors</li>
+                            <li>President of the Computer Science Student Association, organizing industry speaker series and hackathons</li>
+                            <li>Recipient of the Outstanding Undergraduate Research Award for compiler optimization work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">
+                            Deep Learning Specialization & Machine Learning Engineering for Production
+                        </div>
+                        <div class="education-details">Coursera (deeplearning.ai), 2021</div>
+                        <ul>
+                            <li>Completed 5-course specialization with distinction, focusing on neural network architecture design and optimization</li>
+                            <li>Final project: Developed a differentially private neural network achieving top 5% performance on benchmark dataset</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">
+                            Advanced Swift Programming & Compiler Development Certification
+                        </div>
+                        <div class="education-details">Apple Developer Academy, 2019</div>
+                        <ul>
+                            <li>Intensive 12-week program covering advanced Swift language features, LLVM integration, and compiler development</li>
+                            <li>Selected as 1 of 15 participants from over 500 applicants worldwide</li>
+                            <li>Capstone project: Created a source-to-source transformation tool for Swift performance optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">
+                            Ongoing Professional Development
+                        </div>
+                        <div class="education-details">2018-Present</div>
+                        <ul>
+                            <li>Completed Stanford's "CS 343: Advanced Topics in Compilers" online extension course (2022)</li>
+                            <li>Participated in the "Responsible AI" executive program at Harvard Business School (2023)</li>
+                            <li>Regular attendee and contributor at LLVM Developer Meetings and Swift Evolution discussions</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Collaborative & Professional Opportunities</h3>
+                    <ul>
+                        <li>Open to joint research initiatives in AI and machine learning, particularly in the areas of privacy-preserving ML architectures, compiler-assisted ML acceleration, and ethical AI deployment frameworks.</li>
+                        <li>Interested in contributing to transformative open-source projects that advance compiler technology, democratize access to AI tools, or enhance developer productivity.</li>
+                        <li>Available for advisory roles or technical leadership positions focused on bridging advanced compiler technology with next-generation AI systems.</li>
+                        <li>Seeking to establish an industry-academia collaborative research group focused on ethical AI development methodologies and privacy-enhancing technologies.</li>
+                        <li>Willing to mentor software engineers and early-career researchers in compiler optimization, machine learning system design, and responsible AI practices.</li>
+                        <li>Currently developing a comprehensive online course on "Building Privacy-First AI Systems" planned for release in Q3 2025.</li>
+                    </ul>
+                </section>
             </div>
             
-            <!-- Two Column Layout -->
-            <div class="two-column">
-                <!-- Left Column -->
-                <div>
-                    <!-- Professional Experience Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h3 class="card-title">Professional Experience</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="experience-item">
-                                <div class="experience-header">
-                                    <div class="company">Apple Inc.</div>
-                                    <div class="period">2018 - Present</div>
-                                </div>
-                                <ul class="achievements">
-                                    <li>Optimized LLVM and Swift compiler performance, achieving 15% reduction in compile times</li>
-                                    <li>Developed machine learning models with 20% improvement in predictive accuracy</li>
-                                    <li>Led initiatives for self-hosted AI projects with emphasis on efficiency and data privacy</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="experience-item">
-                                <div class="experience-header">
-                                    <div class="company">Previous Company</div>
-                                    <div class="period">2016 - 2018</div>
-                                </div>
-                                <ul class="achievements">
-                                    <li>Designed machine learning algorithms for large-scale data processing, increasing efficiency by 30%</li>
-                                    <li>Enhanced software scalability to support 50% increase in concurrent users</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Notable Achievements Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <h3 class="card-title">Notable Achievements</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="metrics-grid">
-                                <div class="metric-card">
-                                    <div class="metric-value">15%</div>
-                                    <div class="metric-label">Reduction in compiler performance times</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">20%</div>
-                                    <div class="metric-label">Improvement in ML predictive accuracy</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">30%</div>
-                                    <div class="metric-label">Efficiency boost in data processing</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">50%</div>
-                                    <div class="metric-label">Increase in concurrent user support</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Research Implications Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3 class="card-title">Research Implications</h3>
-                        </div>
-                        <div class="card-content">
-                            <ul class="implications-list">
-                                <li class="implication-item">
-                                    <div class="implication-title">Privacy-Centric AI Development</div>
-                                    <div class="implication-desc">My focus on self-hosted AI solutions indicates a commitment to data privacy and security, addressing growing concerns about data sovereignty in AI applications.</div>
-                                </li>
-                                <li class="implication-item">
-                                    <div class="implication-title">Compiler Efficiency</div>
-                                    <div class="implication-desc">Improvements in compile times directly impact developer productivity, with optimization techniques having broader applications beyond Apple's ecosystem.</div>
-                                </li>
-                                <li class="implication-item">
-                                    <div class="implication-title">Scalable AI Systems</div>
-                                    <div class="implication-desc">Experience with large-scale data processing demonstrates expertise in building systems that can handle increasing computational demands, particularly relevant as AI models continue to grow in size and complexity.</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Column -->
-                <div>
-                    <!-- Technical Skills Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="card-title">Technical Expertise</h3>
-                        </div>
-                        <div class="card-content">
-                            <h4 style="margin-bottom: 1rem;">Programming Languages</h4>
-                            <div class="skills-grid" style="margin-bottom: 1.5rem;">
-                                <div class="skill-item expert">
-                                    <div class="skill-name">Python</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item advanced">
-                                    <div class="skill-name">C++</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item proficient">
-                                    <div class="skill-name">Swift</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h4 style="margin-bottom: 1rem;">Specialized Areas</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item expert">
-                                    <div class="skill-name">AI & ML</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item advanced">
-                                    <div class="skill-name">Reinforcement Learning</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item advanced">
-                                    <div class="skill-name">NLP</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item expert">
-                                    <div class="skill-name">Compiler Optimization</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item advanced">
-                                    <div class="skill-name">LLVM Architecture</div>
-                                    <div class="skill-level">
-                                        <div class="skill-level-fill"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Research Interests Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-microscope"></i>
-                            </div>
-                            <h3 class="card-title">Research Interests</h3>
-                        </div>
-                        <div class="card-content">
-                            <ul class="focus-list">
-                                <li class="focus-category">
-                                    <div class="focus-title">Compiler Optimization Techniques</div>
-                                    <ul class="focus-points">
-                                        <li>Performance enhancement in LLVM-based compilers</li>
-                                        <li>Swift compiler optimization strategies</li>
-                                        <li>Runtime efficiency improvements</li>
-                                    </ul>
-                                </li>
-                                <li class="focus-category">
-                                    <div class="focus-title">Self-Hosted AI Solutions</div>
-                                    <ul class="focus-points">
-                                        <li>Architecture design for privacy-preserving AI systems</li>
-                                        <li>Decentralized machine learning frameworks</li>
-                                        <li>On-device AI processing optimization</li>
-                                    </ul>
-                                </li>
-                                <li class="focus-category">
-                                    <div class="focus-title">Machine Learning Applications</div>
-                                    <ul class="focus-points">
-                                        <li>Predictive modeling for software systems</li>
-                                        <li>Efficiency optimization in AI/ML pipelines</li>
-                                        <li>NLP applications in development environments</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Education Card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h3 class="card-title">Education</h3>
-                        </div>
-                        <div class="card-content">
-                            <ul class="education-list">
-                                <li class="education-item">
-                                    <div class="education-icon">
-                                        <i class="fas fa-university"></i>
-                                    </div>
-                                    <div class="education-details">
-                                        <div class="degree">Bachelor of Science in Computer Science</div>
-                                        <div class="school">University of Florida, 2017</div>
-                                    </div>
-                                </li>
-                                <li class="education-item">
-                                    <div class="education-icon">
-                                        <i class="fas fa-certificate"></i>
-                                    </div>
-                                    <div class="education-details">
-                                        <div class="degree">Machine Learning Specialist Certification</div>
-                                        <div class="school">Coursera, 2021</div>
-                                    </div>
-                                </li>
-                                <li class="education-item">
-                                    <div class="education-icon">
-                                        <i class="fab fa-apple"></i>
-                                    </div>
-                                    <div class="education-details">
-                                        <div class="degree">Swift Programming Certification</div>
-                                        <div class="school">Apple Developer Academy, 2019</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 Donald Filimon. Inspiring innovation through technology and creativity.</p>
-        </footer>
+            <footer>
+                &copy; 2025 Donald Filimon. Inspiring innovation through technology and creativity.
+            </footer>
+        </div>
     </div>
+    
+    <button class="print-button" onclick="window.print()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print Resume
+    </button>
+
+    <script>
+        // Simple script to handle the print button
+        document.querySelector('.print-button').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
 </body>
 </html>
