@@ -3,54 +3,432 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="accessibility, performance, responsive design, SEO, security">
-  <meta name="description" content="Optimized webpage for accessibility, performance, and responsive design.">
-  <title>Accessibility and Performance Optimized Page</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Donald Filimon – Software Engineer & AI Specialist</title>
+  <meta name="description" content="Donald Filimon: Innovative software engineer, AI specialist, and privacy-first technology advocate.">
+  <meta property="og:title" content="Donald Filimon – Software Engineer & AI Specialist">
+  <meta property="og:description" content="Innovative software engineer focused on compiler optimization, AI, and privacy-first systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donaldfilimon.github.io/">
+  <meta property="og:image" content="https://donaldfilimon.github.io/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --primary: #0066cc;
+      --secondary: #4c8bea;
+      --bg: #f5f5f7;
+      --text: #1d1d1f;
+      --muted: #86868b;
+      --radius: 12px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      background: var(--primary);
+      color: #fff;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      left: 0;
+      top: 0;
+      width: auto;
+      height: auto;
+      padding: 1em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
+      color: #fff;
+      padding: 3rem 2rem 2rem 2rem;
+      border-radius: var(--radius) var(--radius) 0 0;
+      box-shadow: var(--shadow);
+    }
+    .header-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .header-content h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 1.2rem;
+    }
+    nav {
+      margin-bottom: 1.5rem;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .contact-info a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      transition: color .2s;
+    }
+    .contact-info a:focus,
+    .contact-info a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    main {
+      background: #fff;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-bottom: 2rem;
+    }
+    section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    h4 {
+      font-size: 1.15rem;
+      margin: 1.2rem 0 0.7rem 0;
+      color: var(--text);
+      font-weight: 600;
+    }
+    ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      list-style: disc;
+    }
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .skill {
+      background: rgba(0,102,204,0.07);
+      color: var(--primary);
+      border-radius: 50px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .achievement {
+      background: rgba(0,102,204,0.03);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .achievement:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,102,204,0.1);
+    }
+    .achievement-number {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .achievement-text {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .print-button {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,102,204,0.2);
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      transition: background .2s, transform .2s;
+    }
+    .print-button:focus, .print-button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+    .print-button svg {
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      header, main, footer { padding: 2rem 1rem; }
+      .header-content h1 { font-size: 2rem; }
+      .achievements { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      header, main, footer { padding: 1rem; }
+      .header-content h1 { font-size: 1.6rem; }
+      .achievements { grid-template-columns: 1fr; }
+      .contact-info { flex-direction: column; gap: 0.6rem; }
+    }
+    @media print {
+      body { background: #fff; }
+      .container, header, main, footer { box-shadow: none; border-radius: 0; }
+      .print-button { display: none; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Donald Filimon",
+    "jobTitle": "Software Engineer & AI Specialist",
+    "url": "https://donaldfilimon.github.io/",
+    "sameAs": [
+      "https://linkedin.com/in/donaldfilimon",
+      "https://github.com/underswitchx"
+    ],
+    "email": "cbkshadow@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Florida"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header role="banner" aria-label="Main Navigation">
-    <nav role="navigation" aria-label="Primary">
-      <ul>
-        <li><a href="#home" aria-label="Home">Home</a></li>
-        <li><a href="#about" aria-label="About Us">About</a></li>
-        <li><a href="#services" aria-label="Our Services">Services</a></li>
-        <li><a href="#contact" aria-label="Contact Us">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main role="main">
-    <section id="home" aria-labelledby="home-heading">
-      <h1 id="home-heading">Welcome to Our Website</h1>
-      <p>Enhancing accessibility, performance, and user engagement.</p>
-    </section>
-
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Us</h2>
-      <p>Learn more about our commitment to inclusive and performant web design.</p>
-    </section>
-
-    <article id="services" aria-labelledby="services-heading">
-      <h2 id="services-heading">Our Services</h2>
-      <ul>
-        <li>Accessibility Consultation</li>
-        <li>Performance Optimization</li>
-        <li>Responsive Design Implementation</li>
-      </ul>
-    </article>
-
-    <aside aria-labelledby="quick-tips-heading">
-      <h3 id="quick-tips-heading">Quick Tips</h3>
-      <p>Use semantic HTML and optimize images for better performance.</p>
-    </aside>
-  </main>
-
-  <footer role="contentinfo">
-    <p>&copy; 2025 Web Optimization Co. All rights reserved.</p>
-    <a href="https://externalwebsite.com" target="_blank" rel="noopener noreferrer" aria-label="Visit External Website">External Link</a>
-  </footer>
-
-  <script src="script.js" defer></script>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="container">
+    <header role="banner" aria-label="Header">
+      <div class="header-content">
+        <h1>Donald Filimon</h1>
+        <h2>Innovative Software Engineer &amp; AI Specialist</h2>
+        <nav aria-label="Contact information">
+          <div class="contact-info">
+            <a href="mailto:cbkshadow@gmail.com" aria-label="Email">
+              📧 cbkshadow@gmail.com
+            </a>
+            <a href="tel:8132030312" aria-label="Phone">
+              📞 (813) 203-0312
+            </a>
+            <a href="https://linkedin.com/in/donaldfilimon" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/donaldfilimon
+            </a>
+            <a href="https://github.com/underswitchx" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6V21c-3.3.7-4-1.4-4-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.7-.7.7-.7-.1-.6-.5-.7-.7-.7-1.1-.1-2.3-.5-2.3-2.3a1.9 1.9 0 0 1 .5-1.3c-.1-.1-.3-.7 0-1.4 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.3.7.1 1.3 0 1.4.3.4.5.8.5 1.3 0 1.8-1.2 2.2-2.3 2.3-.2.1-.6.2-.7.7 0 .6.5.7.7.7 1.4.1 2.9.1 4.3 0 .6.1.8.5.8.6v1.8c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+              github.com/underswitchx
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section>
+        <h3>Overview</h3>
+        <p>Donald Filimon is an innovative software engineer and AI specialist with a strong background in compiler optimization, machine learning, and large-scale system development. Committed to privacy-first and ethical AI, Donald bridges the gap between advanced technology and human-centric design.</p>
+      </section>
+      <section>
+        <h3>Core Competencies</h3>
+        <h4>Programming & Development</h4>
+        <div class="skills-container">
+          <span class="skill">Python</span>
+          <span class="skill">C++</span>
+          <span class="skill">Swift</span>
+          <span class="skill">LLVM</span>
+          <span class="skill">API Design</span>
+          <span class="skill">Docker</span>
+        </div>
+        <h4>AI & Machine Learning</h4>
+        <div class="skills-container">
+          <span class="skill">Deep Learning</span>
+          <span class="skill">Reinforcement Learning</span>
+          <span class="skill">Predictive Modeling</span>
+          <span class="skill">NLP</span>
+          <span class="skill">AI Automation</span>
+        </div>
+        <h4>Compiler & Performance</h4>
+        <div class="skills-container">
+          <span class="skill">LLVM Optimizations</span>
+          <span class="skill">Swift Compiler</span>
+          <span class="skill">System Responsiveness</span>
+          <span class="skill">Runtime Efficiency</span>
+        </div>
+        <h4>Cloud & Infrastructure</h4>
+        <div class="skills-container">
+          <span class="skill">Cloud Computing</span>
+          <span class="skill">Self-hosted AI</span>
+          <span class="skill">Scalable Systems</span>
+          <span class="skill">Secure Deployments</span>
+        </div>
+      </section>
+      <section>
+        <h3>Experience</h3>
+        <div>
+          <h4>Apple Inc. <span style="float:right;color:var(--muted);font-weight:400;font-size:0.95rem;">2018–Present</span></h4>
+          <div style="color:var(--muted);margin-bottom:.5rem;">Machine Learning &amp; Open Source Developer</div>
+          <ul>
+            <li>Led Swift Compiler Performance Team, achieving a 15% reduction in compile times.</li>
+            <li>Architected ML-based code completion system, improving predictive accuracy by 20%.</li>
+            <li>Developed "Swift-ML" for seamless ML model integration on Apple devices.</li>
+            <li>Contributed 50+ PRs to Swift open-source, focusing on diagnostics and tooling.</li>
+            <li>Mentored junior developers in compiler and ML integration.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tensor Systems, Inc. <span style="float:right;color:var(--muted);font-weight:400;font-size:0.95rem;">2016–2018</span></h4>
+          <div style="color:var(--muted);margin-bottom:.5rem;">Senior Software Engineer, AI Infrastructure</div>
+          <ul>
+            <li>Designed distributed ML pipelines for 25TB daily user data, improving efficiency by 30%.</li>
+            <li>Built scalable microservices recommendation engine using Kubernetes.</li>
+            <li>Created secure, partner-facing APIs and migrated legacy systems to containers.</li>
+            <li>Developed AI-based anomaly detection for network security.</li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h3>Notable Achievements</h3>
+        <div class="achievements">
+          <div class="achievement">
+            <div class="achievement-number">15%</div>
+            <div class="achievement-text">Reduction in compiler performance times</div>
+          </div>
+          <div class="achievement">
+            <div class="achievement-number">22%</div>
+            <div class="achievement-text">Reduction in app package sizes via neural optimization</div>
+          </div>
+          <div class="achievement">
+            <div class="achievement-number">40%</div>
+            <div class="achievement-text">Reduction in coding time with AI-assisted tools</div>
+          </div>
+          <div class="achievement">
+            <div class="achievement-number">75%</div>
+            <div class="achievement-text">Reduction in false alerts via AI anomaly detection</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Significant Projects</h3>
+        <div>
+          <h4>Abbey &amp; Aviva – AI Assistant for Software Automation</h4>
+          <ul>
+            <li>Developed a domain-specific LLM fine-tuned on 2.5M+ lines of production code.</li>
+            <li>Reduced development time by 40% via context-aware code generation.</li>
+            <li>Launched plugin system for integration with 12+ IDEs.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>WDBX (Webuix) – Self-hosted WebUI for LLMs</h4>
+          <ul>
+            <li>Built containerized LLM deployment platform for on-premises use.</li>
+            <li>Enabled low-latency distributed serving and end-to-end encryption.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>SwiftCompilerKit – Tooling for Swift Compiler</h4>
+          <ul>
+            <li>Created dev toolkit reducing onboarding time for contributors by 60%.</li>
+            <li>Developed DSL for custom optimization passes and advanced visualization tools.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>PrivacyML – Privacy-Preserving ML Framework</h4>
+          <ul>
+            <li>Implemented federated learning and differential privacy for GDPR compliance.</li>
+            <li>Published research awarded "Best Paper" at PrivacyTech 2023.</li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h3>Open Source & Recognition</h3>
+        <ul>
+          <li>Core contributor to LLVM, 75+ accepted patches.</li>
+          <li>Maintainer for TinyML/SecureCompute (3,000+ GitHub stars).</li>
+          <li>Host of "Compilers & ML" podcast (25,000+ monthly listeners).</li>
+          <li>Keynote speaker at LLVM DevConf 2023, featured in MIT Technology Review’s "Innovators Under 35".</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Education</h3>
+        <div>
+          <h4>BSc Computer Science, Minor in Math</h4>
+          <div class="skills-container"><span class="skill">University of Florida, 2017</span> <span class="skill">GPA: 3.92</span></div>
+        </div>
+        <div>
+          <h4>Deep Learning Specialization</h4>
+          <div class="skills-container"><span class="skill">Coursera (deeplearning.ai), 2021</span></div>
+        </div>
+        <div>
+          <h4>Advanced Swift &amp; Compiler Dev Certification</h4>
+          <div class="skills-container"><span class="skill">Apple Developer Academy, 2019</span></div>
+        </div>
+      </section>
+      <section>
+        <h3>Professional Opportunities</h3>
+        <ul>
+          <li>Open to joint research in privacy-preserving ML, compiler-accelerated AI, and ethical tech.</li>
+          <li>Available for advisory roles and technical leadership bridging compiler and AI systems.</li>
+          <li>Mentorship for engineers and researchers in compiler, ML, and responsible AI practices.</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      &copy; 2025 Donald Filimon. Inspiring innovation through technology and creativity.
+    </footer>
+  </div>
+  <button class="print-button" onclick="window.print()" aria-label="Print Resume">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+      <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+    </svg>
+    Print Resume
+  </button>
 </body>
 </html>
