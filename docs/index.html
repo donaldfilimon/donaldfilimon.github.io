@@ -1,589 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="scroll-smooth">
 <head>
+  <!-- //! Performance-Critical Meta Configuration -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donald Filimon – Software Engineer & AI Specialist</title>
-  <meta name="description" content="Donald Filimon: Innovative software engineer and AI specialist focused on compiler optimization, machine learning, and privacy-first AI systems.">
-  <meta name="keywords" content="Donald Filimon, software engineer, AI specialist, compiler optimization, machine learning, privacy-first AI, Swift, LLVM, ethical AI, responsive design, modern web development">
-  <meta property="og:title" content="Donald Filimon – Software Engineer & AI Specialist">
-  <meta property="og:description" content="Explore the professional profile of Donald Filimon, a leader in compiler optimization and ethical AI development.">
+  <meta name="theme-color" content="#0052cc">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- //! SEO & Social Media Optimization -->
+
+  <title>Donald Filimon - Software Engineer & AI Specialist</title>
+  <meta name="description" content="Innovative Software Engineer & AI Specialist with expertise in Swift, LLVM, Machine Learning, and Compiler Optimization. Apple Inc. developer specializing in performance optimization and ethical AI.">
+  <meta name="keywords" content="Donald Filimon, Software Engineer, AI Specialist, Swift, LLVM, Machine Learning, Apple, Compiler Optimization, Privacy-First AI, React Developer">
+  <meta name="author" content="Donald Filimon">
+
+  <!-- //! Open Graph Protocol - Social Media Integration -->
+
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://donaldfilimon.github.io/">
-  <meta property="og:image" content="https://donaldfilimon.github.io/images/profile.jpg">
+  <meta property="og:url" content="https://underswitchx.github.io/">
+  <meta property="og:title" content="Donald Filimon - Software Engineer & AI Specialist">
+  <meta property="og:description" content="Innovative Software Engineer & AI Specialist with expertise in Swift, LLVM, Machine Learning, and Compiler Optimization.">
+  <meta property="og:image" content="https://underswitchx.github.io/assets/profile-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- //! Twitter Card Optimization -->
+
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="favicon.ico">
-  <style>
-    :root {
-      --primary: #0052cc;
-      --secondary: #4c8bea;
-      --bg: #fafafa;
-      --bg-dark: #1a1a1a;
-      --text: #1a1a1a;
-      --text-dark: #e0e0e0;
-      --muted: #6b7280;
-      --muted-dark: #9ca3af;
-      --radius: 16px;
-      --shadow: 0 10px 40px rgba(0,0,0,0.1);
-      --shadow-dark: 0 10px 40px rgba(0,0,0,0.4);
-    }
-    [data-theme="dark"] {
-      --bg: var(--bg-dark);
-      --text: var(--text-dark);
-      --muted: var(--muted-dark);
-      --shadow: var(--shadow-dark);
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.7;
-      transition: background 0.3s, color 0.3s;
-    }
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      background: var(--primary);
-      color: #fff;
-      z-index: 1000;
-      padding: 1em;
-    }
-    .skip-link:focus {
-      left: 0;
-      top: 0;
-      width: auto;
-      height: auto;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      padding: 4rem 2rem 3rem;
-      border-radius: var(--radius) var(--radius) 0 0;
-      box-shadow: var(--shadow);
-      position: relative;
-      text-align: center;
-    }
-    .header-content h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.03em;
-    }
-    .header-content h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      opacity: 0.9;
-      margin-bottom: 1.5rem;
-    }
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      border: 3px solid #fff;
-    }
-    .intro-video {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      margin: 1.5rem 0;
-    }
-    .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .contact-info a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      transition: color 0.3s, transform 0.2s;
-    }
-    .contact-info a:hover, .contact-info a:focus {
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .contact-info svg {
-      margin-right: 0.5rem;
-    }
-    main {
-      background: var(--bg);
-      border-radius: 0 0 var(--radius) var(--radius);
-      box-shadow: var(--shadow);
-      padding: 3rem 2.5rem;
-      margin-bottom: 2rem;
-    }
-    section {
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    h3 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-    h4 {
-      font-size: 1.2rem;
-      margin: 1.5rem 0 0.8rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-    ul {
-      margin: 1rem 0 1.5rem 1.8rem;
-      list-style: disc;
-    }
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 0.8rem;
-      margin-bottom: 1.5rem;
-    }
-    .skill {
-      background: rgba(0,82,204,0.1);
-      color: var(--primary);
-      border-radius: 50px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-align: center;
-      transition: transform 0.2s, background 0.3s;
-    }
-    .skill:hover {
-      transform: scale(1.05);
-      background: rgba(0,82,204,0.2);
-    }
-    .achievements {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.8rem;
-      margin: 2rem 0;
-    }
-    .achievement {
-      background: rgba(0,82,204,0.05);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .achievement:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,82,204,0.15);
-    }
-    .achievement-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    .achievement-text {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .chart-container {
-      margin: 2rem 0;
-      max-width: 100%;
-      height: 300px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      background: var(--bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,82,204,0.2);
-      z-index: 100;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .theme-toggle:hover, .theme-toggle:focus {
-      background: var(--secondary);
-      transform: rotate(360deg);
-    }
-    .print-button {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,82,204,0.2);
-      display: flex;
-      align-items: center;
-      z-index: 100;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .print-button:hover, .print-button:focus {
-      background: var(--secondary);
-      transform: translateY(-3px);
-    }
-    .print-button svg {
-      margin-right: 0.5rem;
-    }
-    @media (max-width: 768px) {
-      header, main, footer { padding: 2rem 1.5rem; }
-      .header-content h1 { font-size: 2.2rem; }
-      .achievements { grid-template-columns: 1fr; }
-      .skills-container { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
-    }
-    @media (max-width: 480px) {
-      header, main, footer { padding: 1.5rem 1rem; }
-      .header-content h1 { font-size: 1.8rem; }
-      .contact-info { flex-direction: column; gap: 1rem; }
-      .theme-toggle, .print-button { padding: 0.6rem; font-size: 0.9rem; }
-    }
-    @media print {
-      body { background: #fff; }
-      [data-theme="dark"] { --bg: #fff; --text: #000; }
-      .container, header, main, footer { box-shadow: none; border-radius: 0; }
-      .theme-toggle, .print-button { display: none; }
-      .intro-video, .chart-container { display: none; }
-      section { page-break-inside: avoid; }
-    }
-  </style>
+  <meta name="twitter:site" content="@mrunderswitch">
+  <meta name="twitter:creator" content="@mrunderswitch">
+  <meta name="twitter:title" content="Donald Filimon - Software Engineer & AI Specialist">
+  <meta name="twitter:description" content="Innovative Software Engineer & AI Specialist with expertise in Swift, LLVM, Machine Learning, and Compiler Optimization.">
+  <meta name="twitter:image" content="https://underswitchx.github.io/assets/profile-twitter.jpg">
+
+  <!-- //! Performance Optimization - Preload Critical Resources -->
+
+  <link rel="preload" href="./styles.css" as="style">
+  <link rel="preload" href="./main.js" as="script">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- //! Modern CSS Architecture -->
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- //! Progressive Web App Manifest -->
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+
+  <!-- //! Structured Data - Schema.org JSON-LD -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Donald Filimon",
     "jobTitle": "Software Engineer & AI Specialist",
-    "url": "https://donaldfilimon.github.io/",
+    "description": "Innovative Software Engineer & AI Specialist with expertise in Swift, LLVM, Machine Learning, and Compiler Optimization.",
+    "url": "https://underswitchx.github.io/",
+    "email": "cbkshadow@gmail.com",
+    "telephone": "+1-813-203-0312",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Apple Inc.",
+      "url": "https://apple.com"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of Florida",
+      "url": "https://ufl.edu"
+    },
+    "knowsAbout": [
+      "Swift Programming",
+      "LLVM Compiler Infrastructure", 
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Compiler Optimization",
+      "Privacy-Preserving AI",
+      "High-Performance Computing"
+    ],
     "sameAs": [
       "https://linkedin.com/in/donaldfilimon",
       "https://github.com/underswitchx",
       "https://x.com/mrunderswitch"
     ],
-    "email": "cbkshadow@gmail.com",
-    "telephone": "(813) 203-0312",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Florida",
-      "description": "BSc Computer Science, Minor in Math, 2017, GPA: 3.92"
-    },
-    "knowsAbout": [
-      "Compiler Optimization",
-      "Machine Learning",
-      "Privacy-Preserving AI",
-      "Swift Programming",
-      "LLVM",
-      "Cloud Computing",
-      "Ethical AI"
-    ]
+    "image": "https://underswitchx.github.io/assets/profile.jpg"
   }
   </script>
-  <script>
-    // Theme Toggle
-    const toggleTheme = () => {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-      localStorage.setItem('theme', html.getAttribute('data-theme'));
-    };
-    // Apply saved theme on load
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    });
-  </script>
+
+  <!-- //! Modern Font Loading Strategy -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- //! Critical CSS Inlining for Above-Fold Content -->
+
+  <style>
+    /* //! Zero-Layout-Shift Loading State */
+    .loading-skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading-shimmer 1.5s infinite;
+    }
+    
+    @keyframes loading-shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    /* //! Hardware-Accelerated Transitions */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    
+    body {
+      background-color: #ffffff;
+      color: #1e293b;
+      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    [data-theme="dark"] body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+
 </head>
 <body>
+  <!-- //! Accessibility-First Navigation -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-  </button>
-  <div class="container">
-    <header role="banner" aria-label="Header">
-      <div class="header-content">
-        <img src="images/profile.jpg" alt="Donald Filimon headshot" class="profile-img" loading="lazy">
-        <h1>Donald Filimon</h1>
-        <h2>Innovative Software Engineer & AI Specialist</h2>
-        <video class="intro-video" controls poster="images/video-poster.jpg">
-          <source src="videos/intro.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <nav aria-label="Contact information">
-          <div class="contact-info">
-            <a href="mailto:cbkshadow@gmail.com" aria-label="Email Donald Filimon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              cbkshadow@gmail.com
-            </a>
-            <a href="tel:8132030312" aria-label="Phone Donald Filimon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              (813) 203-0312
-            </a>
-            <a href="https://linkedin.com/in/donaldfilimon" target="_blank" rel="noopener" aria-label="Donald Filimon's LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                <circle cx="4" cy="4" r="2"/>
-              </svg>
-              linkedin.com/in/donaldfilimon
-            </a>
-            <a href="https://github.com/underswitchx" target="_blank" rel="noopener" aria-label="Donald Filimon's GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-              </svg>
-              github.com/underswitchx
-            </a>
-            <a href="https://x.com/mrunderswitch" target="_blank" rel="noopener" aria-label="Donald Filimon's X Profile">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-              </svg>
-              x.com/mrunderswitch
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <main id="main-content" role="main" tabindex="-1">
-      <section aria-labelledby="overview">
-        <h3 id="overview">Overview</h3>
-        <p>Donald Filimon is an innovative software engineer and AI specialist with a strong background in compiler optimization, machine learning, and large-scale system development. Committed to privacy-first and ethical AI, Donald bridges the gap between advanced technology and human-centric design.</p>
-      </section>
-      <section aria-labelledby="competencies">
-        <h3 id="competencies">Core Competencies</h3>
-        <h4>Programming & Development</h4>
-        <div class="skills-container">
-          <span class="skill">Python</span>
-          <span class="skill">C++</span>
-          <span class="skill">Swift</span>
-          <span class="skill">LLVM</span>
-          <span class="skill">API Design</span>
-          <span class="skill">Docker</span>
-        </div>
-        <h4>AI & Machine Learning</h4>
-        <div class="skills-container">
-          <span class="skill">Deep Learning</span>
-          <span class="skill">Reinforcement Learning</span>
-          <span class="skill">Predictive Modeling</span>
-          <span class="skill">NLP</span>
-          <span class="skill">AI Automation</span>
-        </div>
-        <h4>Compiler & Performance</h4>
-        <div class="skills-container">
-          <span class="skill">LLVM Optimizations</span>
-          <span class="skill">Swift Compiler</span>
-          <span class="skill">System Responsiveness</span>
-          <span class="skill">Runtime Efficiency</span>
-        </div>
-        <h4>Cloud & Infrastructure</h4>
-        <div class="skills-container">
-          <span class="skill">Cloud Computing</span>
-          <span class="skill">Self-hosted AI</span>
-          <span class="skill">Scalable Systems</span>
-          <span class="skill">Secure Deployments</span>
-        </div>
-      </section>
-      <section aria-labelledby="experience">
-        <h3 id="experience">Experience</h3>
-        <div>
-          <h4>Apple Inc. <span style="float:right; color:var(--muted); font-weight:400; font-size:0.95rem;">2018–Present</span></h4>
-          <div style="color:var(--muted); margin-bottom:.5rem;">Machine Learning & Open Source Developer</div>
-          <ul>
-            <li>Led Swift Compiler Performance Team, achieving a 15% reduction in compile times.</li>
-            <li>Architected ML-based code completion system, improving predictive accuracy by 20%.</li>
-            <li>Developed "Swift-ML" for seamless ML model integration on Apple devices.</li>
-            <li>Contributed 50+ PRs to Swift open-source, focusing on diagnostics and tooling.</li>
-            <li>Mentored junior developers in compiler and ML integration.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Tensor Systems, Inc. <span style="float:right; color:var(--muted); font-weight:400; font-size:0.95rem;">2016–2018</span></h4>
-          <div style="color:var(--muted); margin-bottom:.5rem;">Senior Software Engineer, AI Infrastructure</div>
-          <ul>
-            <li>Designed distributed ML pipelines for 25TB daily user data, improving efficiency by 30%.</li>
-            <li>Built scalable microservices recommendation engine using Kubernetes.</li>
-            <li>Created secure, partner-facing APIs and migrated legacy systems to containers.</li>
-            <li>Developed AI-based anomaly detection for network security.</li>
-          </ul>
-        </div>
-      </section>
-      <section aria-labelledby="achievements">
-        <h3 id="achievements">Notable Achievements</h3>
-        <p>Below is an interactive chart showcasing key performance metrics achieved in my projects.</p>
-        <div class="chart-container">
-          <canvas id="achievementsChart"></canvas>
-        </div>
-        <div class="achievements">
-          <div class="achievement">
-            <div class="achievement-number">15%</div>
-            <div class="achievement-text">Reduction in compiler performance times</div>
-          </div>
-          <div class="achievement">
-            <div class="achievement-number">22%</div>
-            <div class="achievement-text">Reduction in app package sizes via neural optimization</div>
-          </div>
-          <div class="achievement">
-            <div class="achievement-number">40%</div>
-            <div class="achievement-text">Reduction in coding time with AI-assisted tools</div>
-          </div>
-          <div class="achievement">
-            <div class="achievement-number">75%</div>
-            <div class="achievement-text">Reduction in false alerts via AI anomaly detection</div>
-          </div>
-        </div>
-      </section>
-      <section aria-labelledby="projects">
-        <h3 id="projects">Significant Projects</h3>
-        <div>
-          <h4>Abbey & Aviva – AI Assistant for Software Automation</h4>
-          <ul>
-            <li>Developed a domain-specific LLM fine-tuned on 2.5M+ lines of production code.</li>
-            <li>Reduced development time by 40% via context-aware code generation.</li>
-            <li>Launched plugin system for integration with 12+ IDEs.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>WDBX (Webuix) – Self-hosted WebUI for LLMs</h4>
-          <ul>
-            <li>Built containerized LLM deployment platform for on-premises use.</li>
-            <li>Enabled low-latency distributed serving and end-to-end encryption.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>SwiftCompilerKit – Tooling for Swift Compiler</h4>
-          <ul>
-            <li>Created dev toolkit reducing onboarding time for contributors by 60%.</li>
-            <li>Developed DSL for custom optimization passes and advanced visualization tools.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>PrivacyML – Privacy-Preserving ML Framework</h4>
-          <ul>
-            <li>Implemented federated learning and differential privacy for GDPR compliance.</li>
-            <li>Published research awarded "Best Paper" at PrivacyTech 2023.</li>
-          </ul>
-        </div>
-      </section>
-      <section aria-labelledby="open-source">
-        <h3 id="open-source">Open Source & Recognition</h3>
-        <ul>
-          <li>Core contributor to LLVM, 75+ accepted patches.</li>
-          <li>Maintainer for TinyML/SecureCompute (3,000+ GitHub stars).</li>
-          <li>Host of "Compilers & ML" podcast (25,000+ monthly listeners).</li>
-          <li>Keynote speaker at LLVM DevConf 2023, featured in MIT Technology Review’s "Innovators Under 35".</li>
-        </ul>
-      </section>
-      <section aria-labelledby="education">
-        <h3 id="education">Education</h3>
-        <div>
-          <h4>BSc Computer Science, Minor in Math</h4>
-          <div class="skills-container">
-            <span class="skill">University of Florida, 2017</span>
-            <span class="skill">GPA: 3.92</span>
-          </div>
-        </div>
-        <div>
-          <h4>Deep Learning Specialization</h4>
-          <div class="skills-container">
-            <span class="skill">Coursera (deeplearning.ai), 2021</span>
-          </div>
-        </div>
-        <div>
-          <h4>Advanced Swift & Compiler Dev Certification</h4>
-          <div class="skills-container">
-            <span class="skill">Apple Developer Academy, 2019</span>
-          </div>
-        </div>
-      </section>
-      <section aria-labelledby="opportunities">
-        <h3 id="opportunities">Professional Opportunities</h3>
-        <ul>
-          <li>Open to joint research in privacy-preserving ML, compiler-accelerated AI, and ethical tech.</li>
-          <li>Available for advisory roles and technical leadership bridging compiler and AI systems.</li>
-          <li>Mentorship for engineers and researchers in compiler, ML, and responsible AI practices.</li>
-        </ul>
-      </section>
-    </main>
-    <footer role="contentinfo">
-      © 2025 Donald Filimon. Inspiring innovation through technology and creativity.
-    </footer>
+
+  <!-- //! React Application Mount Point -->
+
+  <div id="root" class="min-h-screen">
+    <!-- //! Progressive Loading State -->
+    <div class="loading-state">
+      <div class="loading-skeleton h-screen"></div>
+    </div>
   </div>
-  <button class="print-button" onclick="window.print()" aria-label="Print Resume">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="6 9 12 15 18 9"></polyline>
-      <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-    </svg>
-    Print Resume
-  </button>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- //! Error Boundary Fallback -->
+
+  <div id="error-fallback" class="hidden error-boundary">
+    <div class="error-container">
+      <h1>Something went wrong</h1>
+      <p>Please refresh the page or try again later.</p>
+      <button onclick="location.reload()" class="retry-button">
+        Reload Page
+      </button>
+    </div>
+  </div>
+
+  <!-- //! Modern JavaScript Module Loading -->
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- //! Application Bootstrap -->
+
+  <script src="./main.js" type="module" defer></script>
+
+  <!-- //! Service Worker Registration -->
+
   <script>
-    // Chart.js Initialization
-    document.addEventListener('DOMContentLoaded', () => {
-      const ctx = document.getElementById('achievementsChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Compiler Times', 'App Package Sizes', 'Coding Time', 'False Alerts'],
-          datasets: [{
-            label: 'Reduction (%)',
-            data: [15, 22, 40, 75],
-            backgroundColor: ['#0052cc', '#4c8bea', '#7fb3ff', '#a3c9ff'],
-            borderColor: ['#003d99', '#3b6bb5', '#5c8fd6', '#7aa3e6'],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: { beginAtZero: true, title: { display: true, text: 'Reduction (%)' }, ticks: { color: 'var(--text)' } },
-            x: { title: { display: true, text: 'Achievement' }, ticks: { color: 'var(--text)' } }
-          },
-          plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Notable Achievements', color: 'var(--text)' }
-          }
-        }
+    //! Progressive Web App Initialization
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(registration => console.log('SW registered'))
+          .catch(error => console.log('SW registration failed'));
       });
+    }
+    
+    //! Performance Monitoring
+    window.addEventListener('load', () => {
+      if ('performance' in window) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        console.log(`Page loaded in ${perfData.loadEventEnd - perfData.loadEventStart}ms`);
+      }
     });
   </script>
+
 </body>
 </html>
