@@ -31,145 +31,180 @@ const { useState, useEffect, useMemo, useCallback, createContext, useContext, us
 //! Performance Metrics - Immutable Data Structures
 const PERFORMANCE_METRICS = Object.freeze([
 {
-label: ‘Compile Time’,
+label: 'Compile Time',
 value: 15,
-color: ‘from-blue-600 to-blue-500’,
-description: ‘Reduction in Swift compiler build times through LLVM optimizations’
+color: 'from-blue-600 to-blue-500',
+description: 'Reduction in Swift compiler build times through LLVM optimizations'
 },
 {
-label: ‘Package Size’,
-value: 22,
-color: ‘from-purple-600 to-blue-500’,
-description: ‘App bundle size reduction via neural network compression’
+label: 'AI Predictions',
+value: 20,
+color: 'from-purple-600 to-blue-500',
+description: 'Improvement in AI-driven developer tool predictive accuracy'
 },
 {
-label: ‘Coding Time’,
+label: 'Inference Latency',
+value: 35,
+color: 'from-indigo-600 to-cyan-400',
+description: 'Reduction in AI inference pipeline latency in production'
+},
+{
+label: 'Task Automation',
 value: 40,
-color: ‘from-indigo-600 to-cyan-400’,
-description: ‘Development velocity improvement through AI-assisted tooling’
-},
-{
-label: ‘False Alerts’,
-value: 75,
-color: ‘from-blue-500 to-cyan-400’,
-description: ‘Anomaly detection accuracy enhancement in production systems’
+color: 'from-blue-500 to-cyan-400',
+description: 'Repetitive coding tasks automated through AI assistant tools'
 }
 ]);
 
 //! Skill Categories - Structured Data Architecture
 const SKILL_CATEGORIES = Object.freeze({
 programming: {
-title: ‘Programming & Development’,
-skills: [‘Python’, ‘C++’, ‘Swift’, ‘LLVM’, ‘API Design’, ‘Docker’],
-gradient: ‘from-blue-600 to-blue-500’,
-icon: ‘💻’
+title: 'Programming & Development',
+skills: ['Python (Expert)', 'C++ (Advanced)', 'Swift (Proficient)', 'Rust', 'LLVM', 'MLIR', 'Docker', 'Kubernetes'],
+gradient: 'from-blue-600 to-blue-500',
+icon: '💻'
 },
 ai: {
-title: ‘AI & Machine Learning’,
-skills: [‘Deep Learning’, ‘Reinforcement Learning’, ‘Predictive Modeling’, ‘NLP’, ‘AI Automation’],
-gradient: ‘from-purple-600 to-blue-500’,
-icon: ‘🤖’
+title: 'AI & Machine Learning',
+skills: ['Deep Learning', 'Reinforcement Learning', 'Predictive Modeling', 'NLP', 'LLMs', 'TensorFlow', 'PyTorch', 'AI Automation'],
+gradient: 'from-purple-600 to-blue-500',
+icon: '🤖'
 },
 compiler: {
-title: ‘Compiler & Performance’,
-skills: [‘LLVM Optimizations’, ‘Swift Compiler’, ‘System Responsiveness’, ‘Runtime Efficiency’],
-gradient: ‘from-indigo-600 to-purple-500’,
-icon: ‘⚡’
+title: 'Compiler & Performance',
+skills: ['LLVM Optimization', 'Swift Compiler', 'MLIR', 'Parallel Computing', 'Low-Level Systems'],
+gradient: 'from-indigo-600 to-purple-500',
+icon: '⚡'
 },
 infrastructure: {
-title: ‘Cloud & Infrastructure’,
-skills: [‘Cloud Computing’, ‘Self-hosted AI’, ‘Scalable Systems’, ‘Secure Deployments’],
-gradient: ‘from-blue-500 to-cyan-400’,
-icon: ‘☁️’
+title: 'Cloud & Infrastructure',
+skills: ['AWS', 'Google Cloud', 'Azure', 'Self-hosted AI', 'Infrastructure-as-Code', 'Microservices'],
+gradient: 'from-blue-500 to-cyan-400',
+icon: '☁️'
+},
+security: {
+title: 'Security & Scalability',
+skills: ['Secure Coding', 'Privacy-focused AI', 'Encryption', 'ML Security Auditing', 'Scalable Architectures'],
+gradient: 'from-green-600 to-teal-500',
+icon: '🔒'
 }
 });
 
 //! Professional Experience Data - Normalized Structure
 const EXPERIENCE_DATA = Object.freeze([
 {
-id: ‘apple-inc’,
-company: ‘Apple Inc.’,
-role: ‘Machine Learning & Open Source Developer’,
-period: ‘2018–Present’,
-location: ‘Cupertino, CA’,
+id: 'apple-inc',
+company: 'Apple Inc.',
+role: 'Machine Learning & Open Source Developer',
+period: '2018–Present',
+location: 'Cupertino, CA',
 achievements: [
-‘Led Swift Compiler Performance Team, achieving a 15% reduction in compile times through advanced LLVM optimizations’,
-‘Architected ML-based code completion system, improving predictive accuracy by 20% using transformer architectures’,
-‘Developed “Swift-ML” framework for seamless ML model integration on Apple silicon devices’,
-‘Contributed 50+ PRs to Swift open-source, focusing on diagnostics and developer tooling improvements’,
-‘Mentored junior developers in compiler architecture and ML integration best practices’
+'Achieved 15% reduction in Swift compiler compile times through advanced LLVM optimization passes',
+'Built AI-driven developer tools, improving predictive accuracy by 20% using transformer architectures',
+'Developed ML-enhanced debugging tools for software developers to streamline development workflows',
+'Led privacy-first AI projects, ensuring data security in self-hosted environments',
+'Optimized AI inference pipelines, reducing latency by 35% in production systems',
+'Contributed to Swift.org, focusing on compiler enhancements and LLVM optimization modules'
 ],
-technologies: [‘Swift’, ‘LLVM’, ‘Core ML’, ‘Metal Performance Shaders’, ‘TensorFlow’]
+technologies: ['Swift', 'LLVM', 'MLIR', 'Core ML', 'TensorFlow', 'PyTorch']
 },
 {
-id: ‘tensor-systems’,
-company: ‘Tensor Systems, Inc.’,
-role: ‘Senior Software Engineer, AI Infrastructure’,
-period: ‘2016–2018’,
-location: ‘San Francisco, CA’,
+id: 'previous-company',
+company: 'Previous Company',
+role: 'Software Engineer',
+period: '2016–2018',
+location: 'Remote',
 achievements: [
-‘Designed distributed ML pipelines processing 25TB daily user data, improving efficiency by 30% through microservice architecture’,
-‘Built scalable recommendation engine using Kubernetes orchestration and real-time feature serving’,
-‘Created secure, partner-facing APIs with OAuth 2.0 and migrated legacy monoliths to containerized services’,
-‘Developed AI-based anomaly detection system reducing false positives by 75% in production monitoring’
+'Developed scalable machine learning pipelines, increasing processing efficiency by 30%',
+'Enhanced system scalability, enabling a 50% increase in concurrent users',
+'Designed and implemented microservices for distributed AI processing',
+'Worked with cross-functional teams to deliver high-performance software solutions'
 ],
-technologies: [‘Python’, ‘Kubernetes’, ‘Apache Kafka’, ‘Redis’, ‘PostgreSQL’]
+technologies: ['Python', 'Docker', 'Kubernetes', 'FastAPI', 'PostgreSQL']
 }
 ]);
 
 //! Project Portfolio - Comprehensive Technical Showcase
 const PROJECT_PORTFOLIO = Object.freeze([
 {
-id: ‘abbey-aviva’,
-title: ‘Abbey & Aviva – AI Assistant for Software Automation’,
-category: ‘AI/ML’,
-description: ‘Domain-specific LLM fine-tuned on 2.5M+ lines of production code using advanced transformer architectures.’,
+id: 'abbey-aviva',
+title: 'Abbey & Aviva – AI Assistant for Software Automation',
+category: 'AI/ML',
+description: 'AI-powered coding assistant using NLP and transformer models for intelligent software automation.',
 highlights: [
-‘Achieved 40% reduction in development time through context-aware code generation’,
-‘Implemented plugin system supporting 12+ IDE integrations with real-time code analysis’,
-‘Deployed distributed inference infrastructure handling 10,000+ concurrent requests’
+'Automated 40% of repetitive coding tasks through context-aware code generation',
+'Integrated into developer workflows for AI-assisted debugging and real-time suggestions',
+'Enhanced productivity through intelligent code completion and automated refactoring'
 ],
-technologies: [‘PyTorch’, ‘Transformers’, ‘FastAPI’, ‘Docker’, ‘Kubernetes’],
-status: ‘Production’
+technologies: ['Python', 'NLP', 'Transformers', 'GPT-like AI', 'FastAPI'],
+status: 'Production'
 },
 {
-id: ‘wdbx-webuix’,
-title: ‘WDBX (Webuix) – Self-hosted WebUI for LLMs’,
-category: ‘Infrastructure’,
-description: ‘Containerized LLM deployment platform designed for enterprise on-premises deployment.’,
+id: 'wdbx-webuix',
+title: 'WDBX (Webuix) – Self-Hosted WebUI for LLMs',
+category: 'Infrastructure',
+description: 'Self-hosted WebUI for LLMs with full security control and enterprise-grade deployment capabilities.',
 highlights: [
-‘Built low-latency distributed serving architecture with sub-100ms response times’,
-‘Implemented end-to-end encryption with zero-knowledge architecture principles’,
-‘Created auto-scaling infrastructure supporting dynamic model loading and resource allocation’
+'Built self-hosted WebUI for LLMs with complete privacy and security control',
+'Scaled to 100+ concurrent users with optimized resource management',
+'Ensured privacy-focused AI execution without third-party dependencies'
 ],
-technologies: [‘Go’, ‘Docker’, ‘Kubernetes’, ‘PostgreSQL’, ‘Redis’],
-status: ‘Open Source’
+technologies: ['Python', 'Docker', 'Flask', 'Kubernetes', 'PostgreSQL'],
+status: 'Open Source'
 },
 {
-id: ‘swift-compiler-kit’,
-title: ‘SwiftCompilerKit – Advanced Tooling for Swift Compiler’,
-category: ‘Developer Tools’,
-description: ‘Comprehensive developer toolkit reducing Swift compiler contributor onboarding time by 60%.’,
+id: 'swift-compiler',
+title: 'Swift Compiler Performance Enhancements',
+category: 'Developer Tools',
+description: 'Open-source contributions to Swift compiler focusing on performance optimizations and memory efficiency.',
 highlights: [
-‘Developed domain-specific language (DSL) for custom optimization pass creation’,
-‘Created advanced visualization tools for compiler intermediate representations’,
-‘Implemented automated testing framework with 95% code coverage for compiler changes’
+'Achieved 15% faster compilation times in production environments',
+'Enhanced memory efficiency for large-scale Swift applications',
+'Contributed to Swift.org open-source improvements and LLVM optimization modules'
 ],
-technologies: [‘Swift’, ‘LLVM’, ‘Python’, ‘WebAssembly’, ‘D3.js’],
-status: ‘Open Source’
+technologies: ['Swift', 'LLVM', 'MLIR', 'C++', 'Python'],
+status: 'Open Source'
 },
 {
-id: ‘privacy-ml’,
-title: ‘PrivacyML – Privacy-Preserving ML Framework’,
-category: ‘Privacy/Security’,
-description: ‘Federated learning framework implementing differential privacy for GDPR compliance.’,
+id: 'privacy-ml',
+title: 'Privacy-Focused AI Development',
+category: 'Privacy/Security',
+description: 'Privacy-preserving AI models with secure deployment architectures for enterprise applications.',
 highlights: [
-‘Achieved “Best Paper” award at PrivacyTech 2023 for novel privacy-preserving algorithms’,
-‘Implemented secure multi-party computation for model training without data sharing’,
-‘Deployed production system serving 1M+ users with provable privacy guarantees’
+'Developed self-hosted LLM security models with encryption and scalable architectures',
+'Implemented security auditing for machine learning models in production',
+'Built privacy-first AI solutions ensuring data security in sensitive environments'
 ],
-technologies: [‘Python’, ‘TensorFlow’, ‘PySyft’, ‘Cryptography’, ‘Kubernetes’],
-status: ‘Research’
+technologies: ['Python', 'TensorFlow', 'PyTorch', 'Cryptography', 'Kubernetes'],
+status: 'Research'
+}
+]);
+
+//! Education & Certifications Data - Normalized Structure
+const EDUCATION_DATA = Object.freeze([
+{
+id: 'ufl',
+type: 'degree',
+title: 'Bachelor of Science in Computer Science',
+institution: 'University of Florida',
+year: '2017',
+icon: '🎓'
+},
+{
+id: 'ml-cert',
+type: 'certification',
+title: 'Certified Machine Learning Specialist',
+institution: 'Coursera',
+year: '2021',
+icon: '📜'
+},
+{
+id: 'swift-cert',
+type: 'certification',
+title: 'Swift Programming Certification',
+institution: 'Apple Developer Academy',
+year: '2019',
+icon: '📜'
 }
 ]);
 
@@ -1032,6 +1067,69 @@ className: ‘grid grid-cols-1 md:grid-cols-2 gap-8’
 });
 
 /**
+- Education & Certifications section
+  */
+const EducationSection = memo(() => {
+const { theme } = useTheme();
+
+//! Memoized education items
+const educationItems = useMemo(() =>
+EDUCATION_DATA.map((item) =>
+React.createElement('div', {
+key: item.id,
+className: `${theme.surface} ${theme.border} border rounded-xl p-6 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl`
+}, [
+React.createElement('div', {
+key: 'header',
+className: 'flex items-start gap-4'
+}, [
+React.createElement('span', {
+key: 'icon',
+className: 'text-3xl'
+}, item.icon),
+React.createElement('div', {
+key: 'content',
+className: 'flex-1'
+}, [
+React.createElement('h3', {
+key: 'title',
+className: `text-lg font-bold ${theme.text} mb-1`
+}, item.title),
+React.createElement('p', {
+key: 'institution',
+className: `${theme.textSecondary} font-medium`
+}, item.institution),
+React.createElement('p', {
+key: 'year',
+className: `${theme.textTertiary} text-sm mt-1`
+}, item.year)
+])
+])
+])
+)
+, [theme]);
+
+return React.createElement('section', {
+className: 'py-20',
+id: 'education'
+}, [
+React.createElement('div', {
+key: 'container',
+className: 'max-w-6xl mx-auto px-6'
+}, [
+React.createElement('h2', {
+key: 'title',
+className: `text-4xl font-bold ${theme.text} text-center mb-16`
+}, '🎓 Education & Certifications'),
+React.createElement('div', {
+key: 'grid',
+className: 'grid grid-cols-1 md:grid-cols-3 gap-6'
+}, educationItems)
+])
+]);
+});
+
+/**
 
 - Application footer with print functionality
   */
@@ -1066,7 +1164,7 @@ className: ‘max-w-6xl mx-auto px-6’
 React.createElement(‘p’, {
 key: ‘copyright’,
 className: ‘text-lg mb-6’
-}, ‘© 2025 Donald Filimon. Inspiring innovation through technology and creativity.’),
+}, '© 2026 Donald Filimon. Inspiring innovation through technology and creativity.'),
 React.createElement(‘button’, {
 key: ‘print-button’,
 onClick: handlePrint,
@@ -1177,13 +1275,14 @@ React.createElement(‘div’, {
 key: ‘app’,
 className: ‘relative’
 }, [
-React.createElement(ThemeToggle, { key: ‘theme-toggle’ }),
-React.createElement(HeroSection, { key: ‘hero’ }),
-React.createElement(CompetenciesSection, { key: ‘competencies’ }),
-React.createElement(ExperienceSection, { key: ‘experience’ }),
-React.createElement(AchievementsSection, { key: ‘achievements’ }),
-React.createElement(ProjectsSection, { key: ‘projects’ }),
-React.createElement(AppFooter, { key: ‘footer’ })
+React.createElement(ThemeToggle, { key: 'theme-toggle' }),
+React.createElement(HeroSection, { key: 'hero' }),
+React.createElement(CompetenciesSection, { key: 'competencies' }),
+React.createElement(ExperienceSection, { key: 'experience' }),
+React.createElement(AchievementsSection, { key: 'achievements' }),
+React.createElement(ProjectsSection, { key: 'projects' }),
+React.createElement(EducationSection, { key: 'education' }),
+React.createElement(AppFooter, { key: 'footer' })
 ])
 ])
 );
