@@ -55,12 +55,11 @@ Donald has a passion for **open-source development, performance engineering, and
 **Role:** Machine Learning & Open Source Developer  
 
 - **Compiler Optimization:**  
-  - Achieved **15% reduction** in **Swift compiler** compile times  
-  - Improved **LLVM optimization passes** for performance gains  
-
+      - Achieved **15% reduction** in **Swift compiler** compile q
+  - Improved **LLVM optimization passes** for performance 5
 - **AI-Driven Development:**  
   - Built **AI-driven developer tools**, improving **predictive accuracy by 20%**  
-  - Developed **ML-enhanced debugging tools** for software developers  
+  - Developed **ML-enhanced debugging tools** for softw.are developers  
 
 - **Self-Hosted AI Projects:**  
   - Led **privacy-first AI projects**, ensuring **data security in self-hosted environments**  
