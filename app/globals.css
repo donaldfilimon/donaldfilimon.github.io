@@ -209,10 +209,142 @@ dd {
   border-bottom: 1px solid var(--border);
 }
 
+.atlas-controls {
+  display: grid;
+  grid-template-columns: minmax(15rem, 2fr) repeat(4, minmax(9rem, 1fr)) auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.atlas-field {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+  font-family: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.atlas-input {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.75rem;
+  color: var(--foreground);
+  background: rgb(21 29 34 / 82%);
+  font-family: var(--font-atkinson), "Atkinson Hyperlegible", ui-sans-serif, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.atlas-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.atlas-group {
+  background: rgb(21 29 34 / 45%);
+}
+
+.atlas-summary {
+  list-style-position: outside;
+  transition: background-color 160ms ease;
+}
+
+.atlas-summary:hover {
+  background: rgb(28 38 44 / 76%);
+}
+
+.atlas-summary::marker {
+  color: var(--signal);
+}
+
+.atlas-grid,
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.atlas-card,
+.recommendation-card {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgb(14 20 24 / 42%);
+}
+
+.atlas-card:nth-child(2n),
+.recommendation-card:nth-child(2n) {
+  border-right: 0;
+}
+
+.atlas-card:nth-last-child(-n + 2),
+.recommendation-card:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.atlas-card:last-child:nth-child(odd),
+.recommendation-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.recommendation-grid {
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.recommendation-card {
+  background: rgb(21 29 34 / 72%);
+}
+
 @media (max-width: 48rem) {
   .featured-work-grid,
-  .service-grid {
+  .service-grid,
+  .atlas-grid,
+  .recommendation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .atlas-card,
+  .recommendation-card,
+  .atlas-card:nth-child(2n),
+  .recommendation-card:nth-child(2n),
+  .atlas-card:nth-last-child(-n + 2),
+  .recommendation-card:nth-last-child(-n + 2) {
+    grid-column: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .atlas-card:last-child,
+  .recommendation-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 80rem) {
+  .atlas-controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .atlas-search {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 42rem) {
+  .atlas-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .atlas-search {
+    grid-column: auto;
   }
 }
 

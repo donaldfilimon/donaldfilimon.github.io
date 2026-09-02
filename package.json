@@ -6,11 +6,14 @@
     "dev": "next dev --port 4173",
     "build": "next build && bun scripts/publish-docs.ts",
     "lint": "eslint",
+    "sync:projects": "bun scripts/sync-project-catalog.ts",
+    "sync:projects:check": "bun scripts/sync-project-catalog.ts --check",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
-    "check": "bun run typecheck && bun run lint && bun run build && bun test && bun scripts/check-docs.ts"
+    "check": "bun run typecheck && bun run lint && bun run sync:projects:check && bun run build && bun test && bun scripts/check-docs.ts"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.39.0",

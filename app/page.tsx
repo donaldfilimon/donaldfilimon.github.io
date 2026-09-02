@@ -1,13 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { PersonalizedWork } from "@/components/site/personalized-work";
+import { ProjectAtlas } from "@/components/site/project-atlas";
+import { projectCatalog, projectCatalogCounts } from "@/content/project-catalog";
 import {
   credibility,
   links,
@@ -137,73 +132,33 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-20">
-          <p className="font-mono text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase">
-            COMPLETE REGISTER
-          </p>
-          <h3 className="font-heading mt-2 text-3xl font-extrabold tracking-tight">
-            Public and Private Work
-          </h3>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Copy follows the active project checkouts. Private work is described
-            without repository URLs, client data, credentials, or unpublished internals.
-          </p>
-        </div>
-        <ul className="mt-8 divide-y border-y md:hidden">
-          {projects.map((project) => (
-            <li key={project.id} id={`work-${project.id}`} className="py-5">
-              <p className="font-heading text-lg font-semibold" translate="no">{project.name}</p>
-              <p className="mt-1 font-mono text-[0.7rem] tracking-[0.14em] text-muted-foreground uppercase">
-                {project.kind} · {project.stack}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">{project.summary}</p>
-              <p className="mt-3">
-                <ProjectLinks project={project} />
-              </p>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 hidden border-y md:block">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="font-mono text-[0.7rem] tracking-[0.14em] uppercase">
-                  Name
-                </TableHead>
-                <TableHead className="font-mono text-[0.7rem] tracking-[0.14em] uppercase">
-                  Kind
-                </TableHead>
-                <TableHead className="font-mono text-[0.7rem] tracking-[0.14em] uppercase">
-                  Stack
-                </TableHead>
-                <TableHead className="font-mono text-[0.7rem] tracking-[0.14em] uppercase">
-                  Notes
-                </TableHead>
-                <TableHead className="font-mono text-[0.7rem] tracking-[0.14em] uppercase">
-                  Links
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {projects.map((project) => (
-                <TableRow key={project.id}>
-                  <TableCell className="font-heading text-base font-semibold whitespace-nowrap" translate="no">
-                    {project.name}
-                  </TableCell>
-                  <TableCell className="font-mono text-xs uppercase">
-                    {project.kind}
-                  </TableCell>
-                  <TableCell className="text-muted-foreground">{project.stack}</TableCell>
-                  <TableCell className="max-w-md whitespace-normal text-muted-foreground">
-                    {project.summary}
-                  </TableCell>
-                  <TableCell className="whitespace-nowrap">
-                    <ProjectLinks project={project} />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+      </section>
+
+      <PersonalizedWork projects={projectCatalog} />
+
+      <section
+        id="atlas"
+        aria-labelledby="atlas-title"
+        className="mx-auto w-full max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6"
+      >
+        <p className="font-mono text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase">
+          PROJECT ATLAS
+        </p>
+        <h2 id="atlas-title" className="font-heading mt-2 text-4xl font-extrabold tracking-tight">
+          The reviewed engineering record
+        </h2>
+        <p className="mt-3 max-w-3xl text-muted-foreground">
+          {projectCatalogCounts.total} privacy-bounded project identities from the
+          local reviewed registry: {projectCatalogCounts.active} active, {" "}
+          {projectCatalogCounts.experimental} experimental, {" "}
+          {projectCatalogCounts.archived} archived, {" "}
+          {projectCatalogCounts.retired} retired, and {" "}
+          {projectCatalogCounts.external} external. Only approved high-level metadata
+          and verified public links are published. Local paths, repository state, source,
+          and operational findings stay private.
+        </p>
+        <div className="mt-8">
+          <ProjectAtlas projects={projectCatalog} />
         </div>
       </section>
 

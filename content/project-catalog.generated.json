@@ -1,0 +1,729 @@
+[
+  {
+    "stableId": "abbey",
+    "displayName": "Abbey",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "abbey-bot-rust",
+    "displayName": "Abbey Bot (Rust)",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "abbey-companion",
+    "displayName": "AbbeyCompanion",
+    "lifecycle": "retired",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive",
+    "primaryStableId": "core-ai-assistant"
+  },
+  {
+    "stableId": "abbey-companion-recovery-4",
+    "displayName": "AbbeyCompanion recovery 4",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "core-ai-assistant"
+  },
+  {
+    "stableId": "abbeybot-swift",
+    "displayName": "AbbeyBot (Swift)",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift",
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "abbeybot-vapor-snapshot",
+    "displayName": "AbbeyBot Vapor source snapshot",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "abbeybot-swift"
+  },
+  {
+    "stableId": "abby-ai-react19-video",
+    "displayName": "Abby AI React 19 video recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery"
+  },
+  {
+    "stableId": "abi",
+    "displayName": "ABI",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "abi-swift-recovery",
+    "displayName": "ABI Swift recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "abi"
+  },
+  {
+    "stableId": "agentic",
+    "displayName": "Agentic",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "agnostic-machine-pipeline",
+    "displayName": "Agnostic Machine pipeline",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "python"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "alien-invasion",
+    "displayName": "Alien Invasion",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "blender-config",
+    "displayName": "Blender configuration",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "bmct-wolfram-verified",
+    "displayName": "BMCT 2.0 Wolfram Verified",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "python",
+      "wolfram"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "cell-machine",
+    "displayName": "Cell Machine",
+    "lifecycle": "experimental",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "experiment"
+  },
+  {
+    "stableId": "cell-state-adaptive",
+    "displayName": "Cell-State Adaptive Problem Solver",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "cell-state-adaptive-recovery",
+    "displayName": "Cell-State Adaptive recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "cell-state-adaptive"
+  },
+  {
+    "stableId": "cell-state-adaptive-variant2-recovery",
+    "displayName": "Cell-State Adaptive validated variant 2 recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "cell-state-adaptive"
+  },
+  {
+    "stableId": "cger-english-2026q1",
+    "displayName": "2026 Q1 CGER English",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "python"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "core-ai-assistant",
+    "displayName": "CoreAIAssistant",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "custom-perfections",
+    "displayName": "Custom Perfections",
+    "lifecycle": "active",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "discordbm-vapor-bot-recovery",
+    "displayName": "DiscordBM Vapor bot recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery"
+  },
+  {
+    "stableId": "donald-portfolio-tsx",
+    "displayName": "Donald Portfolio TSX",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "archive",
+    "primaryStableId": "donaldfilimoncom"
+  },
+  {
+    "stableId": "donaldfilimoncom",
+    "displayName": "Donald Filimon personal site",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "eagle-lsp",
+    "displayName": "Eagle LSP",
+    "lifecycle": "external",
+    "ownership": "external",
+    "projectKind": "reference",
+    "ecosystems": [],
+    "publicationClass": "reference"
+  },
+  {
+    "stableId": "gama-active",
+    "displayName": "Gama Qt",
+    "lifecycle": "experimental",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift",
+      "cpp"
+    ],
+    "publicationClass": "experiment",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "gama-framework",
+    "displayName": "Gama Framework",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "exceptional",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "gama-framework-merged-checkout-20260824",
+    "displayName": "Gama Framework merged checkout",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "gama-framework-recovery",
+    "displayName": "Gama Framework recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "gama-recovery",
+    "displayName": "Gama recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "gama-recovery-2",
+    "displayName": "Gama recovery 2",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "gama-swift",
+    "displayName": "Gama Swift superseded checkout",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive",
+    "primaryStableId": "gama-framework"
+  },
+  {
+    "stableId": "game-example",
+    "displayName": "GameExample",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "green-square-bliss",
+    "displayName": "Green Square Bliss",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "hydrocycle",
+    "displayName": "HydroCycle",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript",
+      "python"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "invasion3d",
+    "displayName": "Invasion3D",
+    "lifecycle": "experimental",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "experiment"
+  },
+  {
+    "stableId": "ladybird",
+    "displayName": "Ladybird fork",
+    "lifecycle": "active",
+    "ownership": "external",
+    "projectKind": "reference",
+    "ecosystems": [
+      "cpp",
+      "rust"
+    ],
+    "publicationClass": "reference"
+  },
+  {
+    "stableId": "lylex",
+    "displayName": "LYLEX",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "mesh-terrain-unity",
+    "displayName": "Mesh Terrain Unity",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "csharp"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "minecraft-server-open",
+    "displayName": "Minecraft Server Open",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "mixed",
+    "displayName": "Mixed",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "exceptional",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "ml-public-ops-observation",
+    "displayName": "ML public operations observation",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "mlai",
+    "displayName": "MLAI Platform",
+    "lifecycle": "active",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "mlai-design-handoff",
+    "displayName": "MLAI design handoff (home root)",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "exceptional",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "mlai"
+  },
+  {
+    "stableId": "mlai-website",
+    "displayName": "MLAI Website pre-monorepo archive",
+    "lifecycle": "archived",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "mlai"
+  },
+  {
+    "stableId": "nabu",
+    "displayName": "Nabu",
+    "lifecycle": "active",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "paint",
+    "displayName": "Paint",
+    "lifecycle": "experimental",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "experiment"
+  },
+  {
+    "stableId": "plugins",
+    "displayName": "Private plugins",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "project-registry",
+    "displayName": "Private Project Registry",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "python"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "roblox-server-craft",
+    "displayName": "RobloxServerCraft",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "simple-runner-starter",
+    "displayName": "SimpleRunner Starter",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "gdscript"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "spacial3d",
+    "displayName": "Spacial3D",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "sqlite-docs",
+    "displayName": "SQLite Documentation",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "string",
+    "displayName": "String",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "exceptional",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "stripe-sample-code",
+    "displayName": "Stripe sample code recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "javascript"
+    ],
+    "publicationClass": "recovery"
+  },
+  {
+    "stableId": "swift-discord",
+    "displayName": "Swift Discord",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "vapor-spec32",
+    "displayName": "VaporSpec32 recovery",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [],
+    "publicationClass": "recovery"
+  },
+  {
+    "stableId": "wdbx-rust",
+    "displayName": "WDBX Rust substrate",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
+    ],
+    "publicationClass": "featured"
+  },
+  {
+    "stableId": "wdbx-zig-scaffold",
+    "displayName": "WDBX Zig historical scaffold",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "zig"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "wdbx-rust"
+  },
+  {
+    "stableId": "webpress",
+    "displayName": "Webpress",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript",
+      "rust"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "workflows-starter-template",
+    "displayName": "Workflows Starter Template",
+    "lifecycle": "active",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "would-you-rather-bun-ts",
+    "displayName": "Would You Rather Bun TS",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "would-you-rather-tfjs"
+  },
+  {
+    "stableId": "would-you-rather-bun-ts-variant2",
+    "displayName": "Would You Rather Bun TS variant 2",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "recovery",
+    "primaryStableId": "would-you-rather-tfjs"
+  },
+  {
+    "stableId": "would-you-rather-tfjs",
+    "displayName": "Would You Rather TFJS",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "archive"
+  },
+  {
+    "stableId": "xrlook",
+    "displayName": "XRLook",
+    "lifecycle": "archived",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "swift"
+    ],
+    "publicationClass": "archive"
+  }
+]

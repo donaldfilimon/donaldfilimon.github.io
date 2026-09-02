@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "bun:test";
 
+import { projectCatalog } from "../content/project-catalog";
 import { links, nav, practice, projects, services, site } from "../content/site";
 import { assertPublishedDocs } from "../scripts/check-docs";
 
@@ -35,7 +36,10 @@ test("home page is composed from the site module, not a redirect", () => {
   expect(page).toContain('id="work"');
   expect(page).toContain('id="services"');
   expect(page).toContain('id="contact"');
-  expect(page).toContain("projects.map");
+  expect(page).toContain("featuredProjects.map");
+  expect(page).toContain("<PersonalizedWork projects={projectCatalog}");
+  expect(page).toContain("<ProjectAtlas projects={projectCatalog}");
+  expect(page).toContain('id="atlas"');
   expect(page).toContain("links.map");
   expect(page).not.toContain("location.replace");
   expect(page).not.toContain("star-space-portfolio");
@@ -51,8 +55,14 @@ test("published docs/ is the site module rendered, not a bounce page", () => {
   expect(html).not.toContain("Ocala");
   expect(html).toContain(`mailto:${site.email}`);
   expect(html).toContain(site.github);
+  expect(html).toContain("PROJECT ATLAS");
+  expect(html).toContain("Recommended for you");
+  expect(html).toContain("privacy-bounded project identities");
+  expect(html).toContain("65");
+  for (const project of projectCatalog) {
+    expect(html).toContain(project.displayName);
+  }
   for (const project of projects) {
-    expect(html).toContain(project.name);
     expect(html).toContain(project.summary);
     if (project.public) {
       expect(project.href).toBeTruthy();
