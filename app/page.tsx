@@ -15,7 +15,7 @@ export default function Home() {
     <div id="top" className="flex flex-1 flex-col">
       <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-          Software engineer
+          {site.role} · {site.location}
         </p>
         <h1 className="font-heading mt-4 max-w-3xl text-5xl leading-[0.95] font-semibold tracking-tight sm:text-7xl">
           {site.name}

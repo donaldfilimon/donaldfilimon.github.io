@@ -1,6 +1,8 @@
 export const site = {
   name: "Donald Filimon",
   fullName: "Donald Joseph Filimon",
+  role: "Software engineer",
+  location: "United States",
   email: "cbkshadow@icloud.com",
   url: "https://donaldfilimon.github.io/",
   domain: "https://donaldfilimon.com",
@@ -100,6 +102,32 @@ export const projects: Project[] = [
     stack: "SwiftUI · TextKit 2",
     summary:
       "Native macOS 27 code editor. Source files stay authoritative; SwiftData holds metadata only. Private repository.",
+    public: false,
+  },
+  {
+    id: "hydrocycle",
+    name: "HydroCycle",
+    stack: "Bun · FastAPI · Cantera",
+    summary:
+      "Evidence-gated hydrogen-combustion simulator. Water never contributes chemical energy; failed gates return motored baselines only.",
+    href: "https://github.com/donaldfilimon/HydroCycle",
+    public: true,
+  },
+  {
+    id: "cell-state",
+    name: "Cell-state adaptive",
+    stack: "Bun · WebGPU",
+    summary:
+      "Closed-loop challenge solvers with a WebGPU lab simulation.",
+    href: "https://github.com/donaldfilimon/cell-state-adaptive-bun-validated",
+    public: true,
+  },
+  {
+    id: "minecraft",
+    name: "minecraft-server-open",
+    stack: "Rust",
+    summary:
+      "Minecraft Java protocol server (axum/tokio) plus a protocol client for the game-playing-agent goal. Private repository.",
     public: false,
   },
 ];
