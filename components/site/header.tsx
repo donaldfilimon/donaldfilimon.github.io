@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -20,12 +21,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a
-          href="#top"
+        <Link
+          href="/"
           className="font-mono text-[0.7rem] tracking-[0.22em] uppercase"
         >
           {site.name}
-        </a>
+        </Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {nav.map((item) => (
             <Button key={item.href} variant="ghost" size="sm" asChild>
@@ -41,7 +42,7 @@ export function SiteHeader() {
               className="md:hidden"
               aria-label="Open menu"
             >
-              <Menu />
+              <Menu aria-hidden="true" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72">

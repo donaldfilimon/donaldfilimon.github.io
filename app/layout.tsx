@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Atkinson_Hyperlegible,
   Bricolage_Grotesque,
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   title: `${site.name} — ${site.role}`,
   description: site.description,
   authors: [{ name: site.fullName, url: site.url }],
+  alternates: { canonical: site.url },
   openGraph: {
     title: site.name,
     description: site.description,
@@ -50,6 +51,12 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -65,7 +72,7 @@ const jsonLd = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Ocala",
+    addressLocality: "Land O’ Lakes",
     addressRegion: "FL",
     addressCountry: "US",
   },

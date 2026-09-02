@@ -1,10 +1,11 @@
 export const site = {
   name: "Donald Filimon",
   fullName: "Donald Joseph Filimon",
-  role: "Software engineer",
-  location: "Ocala, Florida",
+  role: "Independent AI systems engineer",
+  location: "Land O’ Lakes, Florida",
   region: "United States",
   company: "The Donald Company",
+  availability: "Working globally from Florida",
   email: "cbkshadow@icloud.com",
   url: "https://donaldfilimon.github.io/",
   domain: "https://donaldfilimon.com",
@@ -14,15 +15,16 @@ export const site = {
   orgDonaldCompany: "https://github.com/donald-company",
   orgXfoss: "https://github.com/XFOSS",
   description:
-    "Software engineer in Ocala, Florida. Local-first AI runtimes, compilers, and native systems.",
-  lede: "I build local-first AI runtimes, compilers, and native systems. Provenance stays attached. The machine stays yours.",
-  stack: ["Rust", "Swift", "TypeScript", "Bun", "LLVM / MLIR"],
+    "Independent engineering for inspectable AI systems, developer frameworks, native applications, and evidence-gated products.",
+  lede: "I turn technically difficult ideas into systems people can inspect, operate, and trust. That means architecture and implementation together, with provenance attached and claims bounded by evidence.",
+  stack: ["Rust", "Swift", "TypeScript", "Python", "LLVM / MLIR"],
 } as const;
 
 export const nav = [
-  { href: "#work", label: "Work" },
-  { href: "#practice", label: "Practice" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#services", label: "Services" },
+  { href: "/#practice", label: "Practice" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export type ProjectKind = "runtime" | "native" | "product" | "lab";
@@ -36,6 +38,7 @@ export type Project = {
   href?: string;
   docs?: string;
   public: boolean;
+  featured: boolean;
 };
 
 export const projects: Project[] = [
@@ -45,10 +48,11 @@ export const projects: Project[] = [
     kind: "runtime",
     stack: "Rust nightly",
     summary:
-      "Cognitive and governance runtime: agents, contracts, MCP, and model runtime.",
+      "Rust-native runtime for local AI orchestration, model access, scheduling, MCP tools, memory, plugins, and claim-honest capability reporting.",
     href: "https://github.com/donaldfilimon/abi",
     docs: "https://donaldfilimon.github.io/abi/",
     public: true,
+    featured: true,
   },
   {
     id: "wdbx",
@@ -56,9 +60,10 @@ export const projects: Project[] = [
     kind: "runtime",
     stack: "Rust",
     summary:
-      "Provenance-aware episodic substrate beneath ABI. Memory is not a vector lookup. Extracted from ABI on 22 Aug 2026.",
+      "Provenance-aware episodic substrate beneath ABI, combining durable storage, causal structure, retrieval, and evidence-oriented contracts.",
     href: "https://github.com/donaldfilimon/wdbx",
     public: true,
+    featured: true,
   },
   {
     id: "abbey",
@@ -66,9 +71,10 @@ export const projects: Project[] = [
     kind: "runtime",
     stack: "Rust CLI / TUI",
     summary:
-      "Hybrid persona CLI and TUI. Coordinated roles, skills, plugins, parallel lanes.",
+      "Operator-controlled CLI and TUI for coordinated personas, skills, plugins, local memory, parallel work, and external agent backends.",
     href: "https://github.com/donaldfilimon/abbey",
     public: true,
+    featured: true,
   },
   {
     id: "gama",
@@ -76,10 +82,11 @@ export const projects: Project[] = [
     kind: "native",
     stack: "Swift",
     summary:
-      "Declarative UI framework. One retained render tree across Apple, TUI, WASM, C-embed, and MLIR.",
+      "Modular declarative UI framework with one retained render tree across terminal, Apple, WebAssembly, C/Android, MLIR, and Embedded Swift hosts.",
     href: "https://github.com/donaldfilimon/gama",
     docs: "https://donaldfilimon.github.io/gama/",
     public: true,
+    featured: true,
   },
   {
     id: "coreai",
@@ -89,6 +96,7 @@ export const projects: Project[] = [
     summary:
       "On-device macOS coding assistant. Canonical home of the Swift Abbey stack after absorbing AbbeyCompanion. Private repository.",
     public: false,
+    featured: false,
   },
   {
     id: "string",
@@ -96,8 +104,9 @@ export const projects: Project[] = [
     kind: "native",
     stack: "SwiftUI · TextKit 2",
     summary:
-      "Native macOS 27 code editor. Source files stay authoritative; SwiftData holds metadata only. Private repository.",
+      "Native macOS code editor with window-scoped workspaces, source-authoritative documents, and metadata kept separate from file contents. Private repository.",
     public: false,
+    featured: true,
   },
   {
     id: "mixed",
@@ -105,8 +114,9 @@ export const projects: Project[] = [
     kind: "native",
     stack: "visionOS · RealityKit",
     summary:
-      "Mixed-immersive AURORA-6 manufacturing facility. Xcode project plus in-repo Swift package. Private repository.",
+      "Mixed-immersive AURORA-6 manufacturing facility built with RealityKit and a reproducible in-repository Swift package. Private repository.",
     public: false,
+    featured: true,
   },
   {
     id: "mlai",
@@ -114,9 +124,10 @@ export const projects: Project[] = [
     kind: "product",
     stack: "Bun · Next.js · Expo",
     summary:
-      "Privacy-first Apple Silicon product line. Published monorepo MLAI-CORPORATION-WWW.",
+      "Privacy-first Apple Silicon product work spanning a Bun and Next.js web surface with an Expo mobile companion.",
     href: "https://github.com/donaldfilimon/MLAI-CORPORATION-WWW",
     public: true,
+    featured: false,
   },
   {
     id: "custom-perfections",
@@ -124,8 +135,9 @@ export const projects: Project[] = [
     kind: "product",
     stack: "TypeScript · Stripe",
     summary:
-      "Custom printing and personalized gifts. customperfections.com is an intentional coming-soon until launch. Private repository.",
+      "Commerce experience for configurable custom printing and personalized gifts, with launch state kept deliberately private. Private repository.",
     public: false,
+    featured: false,
   },
   {
     id: "hydrocycle",
@@ -133,19 +145,22 @@ export const projects: Project[] = [
     kind: "lab",
     stack: "Bun · FastAPI · Cantera",
     summary:
-      "Evidence-gated hydrogen-combustion simulator. Water never contributes chemical energy.",
+      "Evidence-gated hydrogen-combustion environment that keeps proposed cycles, scientific-model limits, and validated test runs visibly separate.",
     href: "https://github.com/donaldfilimon/HydroCycle",
     docs: "https://donaldfilimon.github.io/HydroCycle/",
     public: true,
+    featured: true,
   },
   {
     id: "cell-state",
-    name: "Cell-state adaptive",
+    name: "Cell-State Adaptive Problem Solver",
     kind: "lab",
     stack: "Bun · WebGPU",
-    summary: "Closed-loop challenge solvers with a WebGPU lab simulation.",
+    summary:
+      "Closed-loop adaptive solver laboratory with WebGPU simulation, reproducible scenarios, and explicit boundaries between observation and validation.",
     href: "https://github.com/donaldfilimon/cell-state-adaptive-bun-validated",
     public: true,
+    featured: true,
   },
   {
     id: "nabu",
@@ -153,9 +168,10 @@ export const projects: Project[] = [
     kind: "product",
     stack: "SvelteKit · D1",
     summary:
-      "Marketing and advertising architecture on SvelteKit and D1. Canonical remote is AmmouraMe/nabu; this machine tracks a fork.",
+      "Marketing and advertising product architecture built on SvelteKit and Cloudflare D1, with its canonical public source maintained by AmmouraMe.",
     href: "https://github.com/AmmouraMe/nabu",
     public: true,
+    featured: false,
   },
   {
     id: "minecraft",
@@ -165,21 +181,71 @@ export const projects: Project[] = [
     summary:
       "Minecraft Java protocol server plus a protocol client for a game-playing agent. Private repository.",
     public: false,
+    featured: false,
   },
 ];
+
+export const services = [
+  {
+    id: "ai-systems-architecture",
+    number: "01",
+    title: "AI Systems Architecture",
+    summary:
+      "Shape model, memory, tool, governance, and evaluation layers into one inspectable system with explicit authority boundaries.",
+    outputs: [
+      "System and capability map",
+      "Runtime and tool contracts",
+      "Memory and evidence design",
+      "Evaluation and governance gates",
+    ],
+  },
+  {
+    id: "applied-product-engineering",
+    number: "02",
+    title: "Applied Product Engineering",
+    summary:
+      "Move a technically unusual idea into a coherent product across web, Apple platforms, compilers, scientific services, and local workflows.",
+    outputs: [
+      "Working product slice",
+      "Cross-platform architecture",
+      "Interaction and state model",
+      "Production-oriented handoff",
+    ],
+  },
+  {
+    id: "evidence-led-hardening",
+    number: "03",
+    title: "Evidence-Led Hardening",
+    summary:
+      "Turn an ambitious prototype into a system whose tests, artifacts, hosted state, and live behavior support the claims made about it.",
+    outputs: [
+      "Claims and risk inventory",
+      "Reproducible validation gates",
+      "Failure-mode hardening",
+      "Evidence-backed delivery record",
+    ],
+  },
+] as const;
+
+export const credibility = [
+  "AI runtimes",
+  "Developer frameworks",
+  "Apple platforms",
+  "Scientific workflows",
+] as const;
 
 export const practice = [
   {
     title: "Systems",
-    body: "Rust, Swift, and compiler-shaped thinking. Ownership is explicit. Tests before confidence claims. Nightly where the repo pins it, stable where it does not.",
+    body: "Architecture and implementation stay in the same loop. Ownership is explicit, interfaces are inspectable, and tests support the claims made about the system.",
   },
   {
     title: "Memory",
-    body: "Retrieval has to show its sources. WDBX keeps provenance on the episode. Agents do not get to launder a guess into a stored fact.",
+    body: "Retrieval should preserve where a record came from, what followed, and why it is trusted. A generated guess does not become a stored fact by repetition.",
   },
   {
     title: "Native",
-    body: "Interfaces that belong on the machine: TUI, SwiftUI, RealityKit, Metal. Local inference when the problem is private. Cloud when it earns its keep.",
+    body: "Interfaces should belong to their platform, from terminal workflows to SwiftUI and RealityKit. Local execution protects private work; network services remain explicit dependencies.",
   },
 ] as const;
 

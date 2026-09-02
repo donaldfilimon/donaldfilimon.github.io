@@ -30,6 +30,7 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           html = Path("docs/index.html").read_text(encoding="utf-8")
+          not_found = Path("docs/404.html").read_text(encoding="utf-8")
           cname = Path("docs/CNAME").read_text(encoding="utf-8").strip()
           for token in (
               "location.replace",
@@ -39,8 +40,13 @@ jobs:
           ):
               assert token not in html, token
           assert "Donald Filimon" in html
+          assert "Land O’ Lakes, Florida" in html
+          assert "Ocala" not in html
           assert 'id="work"' in html
+          assert 'id="services"' in html
           assert 'id="contact"' in html
+          for href in ("/#work", "/#services", "/#practice", "/#contact"):
+              assert f'href="{href}"' in not_found, href
           assert cname == "donaldfilimon.com"
           print("docs guard ok")
           PY

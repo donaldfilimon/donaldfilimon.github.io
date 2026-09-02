@@ -8,7 +8,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { links, practice, projects, site, type Project } from "@/content/site";
+import {
+  credibility,
+  links,
+  practice,
+  projects,
+  services,
+  site,
+  type Project,
+} from "@/content/site";
+
+const featuredProjects = projects.filter((project) => project.featured);
 
 function ProjectLinks({ project }: { project: Project }) {
   const repo = project.public ? project.href : undefined;
@@ -16,16 +26,16 @@ function ProjectLinks({ project }: { project: Project }) {
     <>
       {repo ? (
         <a className="text-sm underline-offset-4 hover:underline" href={repo}>
-          repo
+          Repository
         </a>
       ) : (
-        <span className="text-sm text-muted-foreground">private</span>
+          <span className="text-sm text-muted-foreground">Private work</span>
       )}
       {project.docs ? (
         <>
           <span aria-hidden="true"> · </span>
           <a className="text-sm underline-offset-4 hover:underline" href={project.docs}>
-            docs
+            Documentation
           </a>
         </>
       ) : null}
@@ -63,16 +73,29 @@ export default function Home() {
             {site.company}
             <span className="text-muted-foreground"> · XFOSS</span>
           </dd>
+          <dt>Availability</dt>
+          <dd>{site.availability}</dd>
         </dl>
 
         <div className="mt-10 flex flex-wrap gap-3">
           <Button asChild>
-            <a href="#work">Read the work</a>
+            <a href="#work">Explore the work</a>
           </Button>
           <Button variant="outline" asChild>
-            <a href={`mailto:${site.email}`}>Write to me</a>
+            <a href={`mailto:${site.email}`}>Start a conversation</a>
           </Button>
         </div>
+      </section>
+
+      <section aria-label="Systems domains" className="border-y">
+        <ul className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-x divide-y md:grid-cols-4 md:divide-y-0">
+          {credibility.map((item, index) => (
+            <li key={item} className="flex min-h-20 items-center gap-3 px-4 font-mono text-xs tracking-[0.08em] uppercase sm:px-6">
+              <span className="text-primary">{String(index + 1).padStart(2, "0")}</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section
@@ -84,16 +107,52 @@ export default function Home() {
           WORK
         </p>
         <h2 id="work-title" className="font-heading mt-2 text-4xl font-extrabold tracking-tight">
-          Register
+          Featured Systems
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Systems I am building from this machine. Copy matches the checkouts,
-          not a résumé.
+          Eight systems that show how architecture, implementation, validation,
+          and delivery connect. Public links are limited to repositories and
+          documentation verified on GitHub.
         </p>
+        <div className="featured-work-grid mt-8">
+          {featuredProjects.map((project, index) => (
+            <article className="featured-work-card flex flex-col justify-between" key={project.id}>
+              <div>
+                <div className="flex items-center justify-between gap-4 font-mono text-[0.7rem] tracking-[0.14em] text-muted-foreground uppercase">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{project.kind}</span>
+                </div>
+                <h3 className="font-heading mt-10 text-3xl font-extrabold tracking-tight" translate="no">
+                  {project.name}
+                </h3>
+                <p className="mt-3 max-w-xl text-muted-foreground">{project.summary}</p>
+              </div>
+              <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t pt-4">
+                <span className="font-mono text-xs text-muted-foreground" translate="no">
+                  {project.stack}
+                </span>
+                <span><ProjectLinks project={project} /></span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-20">
+          <p className="font-mono text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase">
+            COMPLETE REGISTER
+          </p>
+          <h3 className="font-heading mt-2 text-3xl font-extrabold tracking-tight">
+            Public and Private Work
+          </h3>
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Copy follows the active project checkouts. Private work is described
+            without repository URLs, client data, credentials, or unpublished internals.
+          </p>
+        </div>
         <ul className="mt-8 divide-y border-y md:hidden">
           {projects.map((project) => (
             <li key={project.id} id={`work-${project.id}`} className="py-5">
-              <p className="font-heading text-lg font-semibold">{project.name}</p>
+              <p className="font-heading text-lg font-semibold" translate="no">{project.name}</p>
               <p className="mt-1 font-mono text-[0.7rem] tracking-[0.14em] text-muted-foreground uppercase">
                 {project.kind} · {project.stack}
               </p>
@@ -128,7 +187,7 @@ export default function Home() {
             <TableBody>
               {projects.map((project) => (
                 <TableRow key={project.id}>
-                  <TableCell className="font-heading text-base font-semibold whitespace-nowrap">
+                  <TableCell className="font-heading text-base font-semibold whitespace-nowrap" translate="no">
                     {project.name}
                   </TableCell>
                   <TableCell className="font-mono text-xs uppercase">
@@ -145,6 +204,42 @@ export default function Home() {
               ))}
             </TableBody>
           </Table>
+        </div>
+      </section>
+
+      <section
+        id="services"
+        aria-labelledby="services-title"
+        className="mx-auto w-full max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6"
+      >
+        <p className="font-mono text-[0.7rem] tracking-[0.22em] text-muted-foreground uppercase">
+          SERVICES
+        </p>
+        <h2 id="services-title" className="font-heading mt-2 text-4xl font-extrabold tracking-tight">
+          Senior Depth, Close to the Product
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          Best fit for founders, engineering leaders, and product leaders working
+          through a technically difficult system rather than buying a commodity deliverable.
+        </p>
+        <div className="service-grid mt-8">
+          {services.map((service) => (
+            <article className="service-card" id={service.id} key={service.id}>
+              <span className="font-mono text-xs text-primary">{service.number}</span>
+              <h3 className="font-heading mt-8 text-2xl font-extrabold tracking-tight">
+                {service.title}
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground">{service.summary}</p>
+              <ul className="mt-8 space-y-2 border-t pt-4 text-sm">
+                {service.outputs.map((output) => (
+                  <li key={output} className="flex gap-3">
+                    <span aria-hidden="true" className="text-primary">+</span>
+                    {output}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -187,7 +282,8 @@ export default function Home() {
           Open channel
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Best reached by email. Public work lives on GitHub.
+          Share the problem, the people it serves, what already exists, and the
+          constraint that makes it difficult. Best reached by email. Public work lives on GitHub.
         </p>
         <ul className="mt-8 divide-y border-y">
           {links.map((link) => (
