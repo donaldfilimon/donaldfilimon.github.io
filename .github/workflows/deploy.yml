@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Guard published docs
         run: |
@@ -31,23 +31,28 @@ jobs:
           from pathlib import Path
           html = Path("docs/index.html").read_text(encoding="utf-8")
           cname = Path("docs/CNAME").read_text(encoding="utf-8").strip()
-          assert "location.replace" not in html
-          assert "star-space-portfolio" not in html
-          assert "Star Space" not in html
+          for token in (
+              "location.replace",
+              "star-space-portfolio",
+              "Star Space",
+              "STAR SPACE",
+          ):
+              assert token not in html, token
           assert "Donald Filimon" in html
           assert 'id="work"' in html
+          assert 'id="contact"' in html
           assert cname == "donaldfilimon.com"
           print("docs guard ok")
           PY
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "./docs"
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

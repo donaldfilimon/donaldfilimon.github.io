@@ -152,8 +152,9 @@ export const projects: Project[] = [
     name: "nabu",
     kind: "product",
     stack: "SvelteKit · D1",
-    summary: "Marketing and advertising architecture, tracking, and automation.",
-    href: "https://github.com/donaldfilimon/nabu",
+    summary:
+      "Marketing and advertising architecture on SvelteKit and D1. Canonical remote is AmmouraMe/nabu; this machine tracks a fork.",
+    href: "https://github.com/AmmouraMe/nabu",
     public: true,
   },
   {

@@ -12,7 +12,7 @@ Intended: https://donaldfilimon.com (domain currently unregistered; see README)
 ## Commands
 
 - `bun run dev` — local server on port 4173
-- `bun run check` — typecheck, lint, export into `docs/`, then `scripts/check-docs.ts`
+- `bun run check` — typecheck, lint, export into `docs/`, bun tests, then `scripts/check-docs.ts`
 - `bun run build` — export only
 
 Never treat `~` as a git repo. Never restore Star Space branding, the `/star-space-portfolio/` redirect, or the CDN-React résumé app.
@@ -27,4 +27,4 @@ Never treat `~` as a git repo. Never restore Star Space branding, the `/star-spa
 
 ## Pages
 
-Source must stay **GitHub Actions** (`build_type: workflow`). The `gh-pages` branch is leftover and is not the publishing source.
+Source must stay **GitHub Actions** (`build_type: workflow`). There is no `gh-pages` branch. The Pages API may still report `source.branch: gh-pages` as leftover metadata; the live source is the workflow.
