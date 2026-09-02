@@ -7,7 +7,6 @@ import {
 
 import { SiteFooter } from "@/components/site/footer";
 import { SiteHeader } from "@/components/site/header";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { site } from "@/content/site";
 
 import "./globals.css";
@@ -97,13 +96,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <TooltipProvider>
-          <SiteHeader />
-          <main id="main" className="flex flex-1 flex-col">
-            {children}
-          </main>
-          <SiteFooter />
-        </TooltipProvider>
+        <SiteHeader />
+        <main id="main" className="flex flex-1 flex-col">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );
