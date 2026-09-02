@@ -87,9 +87,8 @@ export const projects: Project[] = [
     kind: "native",
     stack: "SwiftUI · Foundation Models",
     summary:
-      "On-device macOS coding assistant. Canonical home of the Swift Abbey stack after absorbing AbbeyCompanion.",
-    href: "https://github.com/donaldfilimon/CoreAIAssistant",
-    public: true,
+      "On-device macOS coding assistant. Canonical home of the Swift Abbey stack after absorbing AbbeyCompanion. Private repository.",
+    public: false,
   },
   {
     id: "string",
@@ -106,9 +105,8 @@ export const projects: Project[] = [
     kind: "native",
     stack: "visionOS · RealityKit",
     summary:
-      "Mixed-immersive AURORA-6 manufacturing facility. Xcode project plus in-repo Swift package.",
-    href: "https://github.com/donaldfilimon/Mixed",
-    public: true,
+      "Mixed-immersive AURORA-6 manufacturing facility. Xcode project plus in-repo Swift package. Private repository.",
+    public: false,
   },
   {
     id: "mlai",
@@ -126,9 +124,8 @@ export const projects: Project[] = [
     kind: "product",
     stack: "TypeScript · Stripe",
     summary:
-      "Custom printing and personalized gifts. customperfections.com is an intentional coming-soon until launch.",
-    href: "https://github.com/donaldfilimon/custom-perfections",
-    public: true,
+      "Custom printing and personalized gifts. customperfections.com is an intentional coming-soon until launch. Private repository.",
+    public: false,
   },
   {
     id: "hydrocycle",

@@ -45,7 +45,16 @@ test("published docs/ is the site module rendered, not a bounce page", () => {
   for (const project of projects) {
     expect(html).toContain(project.name);
     expect(html).toContain(project.summary);
+    if (project.public) {
+      expect(project.href).toBeTruthy();
+      expect(html).toContain(`href="${project.href}"`);
+    } else {
+      expect(project.href).toBeUndefined();
+    }
   }
+  expect(html).not.toContain("github.com/donaldfilimon/CoreAIAssistant");
+  expect(html).not.toContain("github.com/donaldfilimon/Mixed");
+  expect(html).not.toContain("github.com/donaldfilimon/custom-perfections");
   for (const link of links) {
     expect(html).toContain(link.href);
   }

@@ -8,7 +8,30 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { links, practice, projects, site } from "@/content/site";
+import { links, practice, projects, site, type Project } from "@/content/site";
+
+function ProjectLinks({ project }: { project: Project }) {
+  const repo = project.public ? project.href : undefined;
+  return (
+    <>
+      {repo ? (
+        <a className="text-sm underline-offset-4 hover:underline" href={repo}>
+          repo
+        </a>
+      ) : (
+        <span className="text-sm text-muted-foreground">private</span>
+      )}
+      {project.docs ? (
+        <>
+          <span aria-hidden="true"> · </span>
+          <a className="text-sm underline-offset-4 hover:underline" href={project.docs}>
+            docs
+          </a>
+        </>
+      ) : null}
+    </>
+  );
+}
 
 export default function Home() {
   return (
@@ -76,21 +99,7 @@ export default function Home() {
               </p>
               <p className="mt-2 text-sm text-muted-foreground">{project.summary}</p>
               <p className="mt-3">
-                {project.href ? (
-                  <a className="text-sm underline-offset-4 hover:underline" href={project.href}>
-                    repo
-                  </a>
-                ) : (
-                  <span className="text-sm text-muted-foreground">private</span>
-                )}
-                {project.docs ? (
-                  <>
-                    <span aria-hidden="true"> · </span>
-                    <a className="text-sm underline-offset-4 hover:underline" href={project.docs}>
-                      docs
-                    </a>
-                  </>
-                ) : null}
+                <ProjectLinks project={project} />
               </p>
             </li>
           ))}
@@ -130,27 +139,7 @@ export default function Home() {
                     {project.summary}
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
-                    {project.href ? (
-                      <a
-                        className="text-sm underline-offset-4 hover:underline"
-                        href={project.href}
-                      >
-                        repo
-                      </a>
-                    ) : (
-                      <span className="text-sm text-muted-foreground">private</span>
-                    )}
-                    {project.docs ? (
-                      <>
-                        <span aria-hidden="true"> · </span>
-                        <a
-                          className="text-sm underline-offset-4 hover:underline"
-                          href={project.docs}
-                        >
-                          docs
-                        </a>
-                      </>
-                    ) : null}
+                    <ProjectLinks project={project} />
                   </TableCell>
                 </TableRow>
               ))}
