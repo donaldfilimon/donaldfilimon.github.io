@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import {
+  Atkinson_Hyperlegible,
+  Bricolage_Grotesque,
+  IBM_Plex_Mono,
+} from "next/font/google";
 
 import { SiteFooter } from "@/components/site/footer";
 import { SiteHeader } from "@/components/site/header";
@@ -8,25 +12,26 @@ import { site } from "@/content/site";
 
 import "./globals.css";
 
-const sans = Geist({
-  variable: "--font-geist-sans",
+const sans = Atkinson_Hyperlegible({
+  variable: "--font-atkinson",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const mono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mono = IBM_Plex_Mono({
+  variable: "--font-plex",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
-const display = Syne({
-  variable: "--font-display",
+const display = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: site.name,
+  title: `${site.name} — ${site.role}`,
   description: site.description,
   authors: [{ name: site.fullName, url: site.url }],
   openGraph: {
@@ -35,11 +40,13 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
     description: site.description,
+    creator: "@underswitch",
   },
   icons: { icon: "/favicon.svg" },
 };
@@ -51,8 +58,26 @@ const jsonLd = {
   alternateName: site.name,
   url: site.url,
   email: site.email,
-  jobTitle: "Software Engineer",
-  sameAs: [site.github, site.linkedIn, site.x, site.domain],
+  jobTitle: site.role,
+  worksFor: {
+    "@type": "Organization",
+    name: site.company,
+    url: site.orgDonaldCompany,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ocala",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  sameAs: [
+    site.github,
+    site.linkedIn,
+    site.x,
+    site.domain,
+    site.orgDonaldCompany,
+    site.orgXfoss,
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

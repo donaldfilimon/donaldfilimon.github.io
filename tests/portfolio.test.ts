@@ -11,6 +11,8 @@ test("site module has identity, work, and contact", () => {
     expect(site.fullName).toContain(part);
   }
   expect(site.email).toContain("@");
+  expect(site.location.length).toBeGreaterThan(0);
+  expect(site.company.length).toBeGreaterThan(0);
   expect(site.github).toContain("github.com/donaldfilimon");
   expect(projects.length).toBeGreaterThanOrEqual(6);
   expect(projects.some((project) => project.public && project.href)).toBe(true);
