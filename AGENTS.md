@@ -14,16 +14,14 @@ Local path: `~/dev/active/donaldfilimoncom`. Remote: `donaldfilimon/donaldfilimo
 
 ## What this is
 
-Donald Filimon's personal site. Next.js 16 (App Router, React Compiler on) + React 19 + Bun + Tailwind v4 + shadcn, statically exported to `docs/` for GitHub Pages. No server runtime. The one non-trivial runtime dependency is `@tensorflow/tfjs`, used only by the consent-gated project ranker (see below).
+Donald Filimon's personal site. Next.js 16 (App Router, React Compiler on) + React 19 + Bun 1.4 + Tailwind v4 + shadcn, statically exported to `docs/` for GitHub Pages. No deployed server runtime; TFJS is loaded only by the consent-gated project ranker.
 
-Live: https://donaldfilimon.github.io/
-Intended: https://donaldfilimon.com (domain unregistered; DNS records and registrar notes live in README)
+Pages target: https://donaldfilimon.github.io/; intended custom domain: https://donaldfilimon.com. Verify domain ownership and DNS before any cutover; README's registrar notes are historical, not live status.
 
 ## Commands
 
 ```bash
-bun install
-bun run dev                  # http://127.0.0.1:4173
+bun run dev                  # Next dev on port 4173; script does not restrict hostname
 bun run check                # typecheck → lint → sync:projects:check → build → bun test → scripts/check-docs.ts
 bun run typecheck            # tsc --noEmit
 bun run lint                 # eslint (flat config; no Biome, no Prettier, no format script)
@@ -36,11 +34,11 @@ bun run sync:projects:check  # verify the committed catalog matches the registry
 bun scripts/check-docs.ts    # standalone docs/ guard
 ```
 
-`bun run build` is not "export only": it deletes and recreates `docs/`. Commit `docs/` before pushing; the Pages workflow uploads that directory and never builds or tests.
+`bun run build` deletes and recreates `docs/`. Preserve existing artifact edits before running it; include regenerated `docs/` in an authorized release commit. Pages uploads that directory and runs only an artifact guard, not app builds/tests. For guide-only edits, `git diff --check` and the read-only `bun scripts/check-docs.ts` avoid export churn.
 
-**`bun run check` and the catalog tests only pass on Donald's Mac.** `scripts/sync-project-catalog.ts` reads `../project-registry/registry/projects.toml` and throws if the sibling checkout is absent, and `tests/project-catalog.test.ts` hardcodes the absolute `/Users/donaldfilimon/...` path to that same file. Elsewhere, run `typecheck`, `lint`, `build`, `bun test tests/portfolio.test.ts tests/personalization.test.ts`, and `check-docs.ts` individually.
+**The full gate requires the external registry.** Sync defaults to `../project-registry/registry/projects.toml`; the CLI accepts `--registry <path>`, but `tests/project-catalog.test.ts` independently hardcodes `/Users/donaldfilimon/dev/active/project-registry/registry/projects.toml`. The override does not make that suite portable. Without the registry, use `typecheck`, `lint`, `build`, `bun test tests/portfolio.test.ts tests/personalization.test.ts tests/build-reproducibility.test.ts`, and `check-docs.ts` individually; report this as partial verification.
 
-Never treat `~` as a git repo. Never restore Star Space branding, the `/star-space-portfolio/` redirect, or the CDN-React résumé app (`scripts/check-docs.ts` and the workflow both assert this).
+Never restore Star Space branding, the `/star-space-portfolio/` redirect, or the CDN-React resume app (`scripts/check-docs.ts` and the workflow guard this).
 
 ## Architecture
 
@@ -50,11 +48,10 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 - `content/site.ts` — name, links, nav, and the editorial copy for featured projects. Nav hrefs must keep the leading `/` because `docs/404.html` is checked for root-qualified anchors.
 - `components/ui/` — shadcn primitives (`components.json` pins the `radix-nova` style). `components/site/` — page chrome, `project-atlas.tsx`, `personalized-work.tsx`.
 - `docs/` — published artifact, committed. `tsconfig.json` and `eslint.config.mjs` both exclude `docs/` and `out/`.
+- `scripts/build-id.ts` hashes sorted source paths/content plus build configs, manifest and lockfile, not Git HEAD, mtimes, or generated output. Extend its input list for new build inputs; preserve reproducible exports (`tests/build-reproducibility.test.ts`).
 - `public/CNAME` is `donaldfilimon.com`. Do not enable the Pages custom domain via API until that name resolves to GitHub Pages IPs.
 
 ### Project catalog pipeline (registry → atlas)
-
-Project data is no longer scraped from local checkouts. The flow is:
 
 1. `scripts/sync-project-catalog.ts` parses the external TOML registry (`../project-registry`, read-only) with `Bun.TOML.parse`.
 2. Every registry project must have an explicit `decision(...)` in `content/project-publication.ts` (the publication allowlist, including `approvedLinks`); a registry project without a decision, or a decision without a registry project, fails the sync.
@@ -65,7 +62,7 @@ Project data is no longer scraped from local checkouts. The flow is:
 
 ### Personalized ranking (client-only)
 
-`lib/project-personalization.ts` defines the feature schema and trains a tiny TFJS model in the browser. TFJS is dynamically imported only after consent; weights persist to IndexedDB and UI state to `localStorage`. `tests/personalization.test.ts` forbids a top-level tfjs import and any `fetch`/`sendBeacon`/`XMLHttpRequest` in that module, so the feature stays zero-egress by test. Atlas link clicks feed the ranker through a `CustomEvent` bus dispatched from `project-atlas.tsx`.
+`lib/project-personalization.ts` owns feature/ranking math and the signal bus; `components/site/personalized-work.tsx` owns consent-gated TFJS loading/training. Weights persist to IndexedDB and UI state to `localStorage`. Preserve dynamic loading and the no-egress contract. `tests/personalization.test.ts` checks component source for top-level TFJS and network APIs; this is not a runtime network audit. Atlas link clicks reach the ranker through the `CustomEvent` bus.
 
 ### `scripts/check-docs.ts`
 
@@ -73,7 +70,7 @@ Asserts `docs/index.html`, `docs/404.html`, and `docs/CNAME` exist; index has no
 
 ## Pages
 
-Source must stay **GitHub Actions** (`build_type: workflow`). There is no `gh-pages` branch. The Pages API may still report `source.branch: gh-pages` as leftover metadata; the live source is the workflow. Dependabot bumps npm and actions monthly.
+Keep Pages on **GitHub Actions** (`build_type: workflow`), not a `gh-pages` branch. `.github/workflows/deploy.yml` publishes on `main` pushes or manual dispatch; neither is authorization to skip the local gate.
 
 <!-- machine-git-policy -->
 ## Git workflow (machine policy, 2026-08-27)
