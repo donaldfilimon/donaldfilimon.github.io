@@ -5,5 +5,6 @@ import { site } from "@/content/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: site.url, lastModified: new Date(), priority: 1 }];
+  // No editorial modification date is tracked; build time is not lastmod.
+  return [{ url: site.url, priority: 1 }];
 }
