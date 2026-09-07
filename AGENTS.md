@@ -30,7 +30,7 @@ bun test                     # bun:test runner
 bun test tests/portfolio.test.ts          # one file
 bun test -t "atlas search and filters"    # one test by name
 bun run sync:projects        # regenerate content/project-catalog.generated.json from the registry
-bun run sync:projects:check  # verify the committed catalog matches the registry (part of check)
+bun run sync:projects:check  # verify the committed catalog matches the registry (part of check; fix a failure with sync:projects)
 bun scripts/check-docs.ts    # standalone docs/ guard
 ```
 
