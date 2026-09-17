@@ -3,7 +3,10 @@ import { expect, test } from "bun:test";
 
 import generatedCatalog from "../content/project-catalog.generated.json";
 import { projectCatalog } from "../content/project-catalog";
-import { projectPublicationDecisions } from "../content/project-publication";
+import {
+  projectPublicationDecisions,
+  projectPublicationExclusions,
+} from "../content/project-publication";
 import type { GeneratedProjectRecord } from "../content/project-types";
 import { filterProjectCatalog } from "../components/site/project-atlas";
 import {
@@ -15,15 +18,15 @@ const generated = generatedCatalog as GeneratedProjectRecord[];
 const registryPath =
   "/Users/donaldfilimon/dev/active/project-registry/registry/projects.toml";
 
-test("publication manifest and generated catalog cover all 65 reviewed projects", () => {
-  expect(projectPublicationDecisions).toHaveLength(65);
-  expect(generated).toHaveLength(65);
-  expect(projectCatalog).toHaveLength(65);
+test("publication manifest and generated catalog cover all 68 published projects", () => {
+  expect(projectPublicationDecisions).toHaveLength(68);
+  expect(generated).toHaveLength(68);
+  expect(projectCatalog).toHaveLength(68);
 
   const decisionIds = projectPublicationDecisions.map((item) => item.stableId);
   const generatedIds = generated.map((item) => item.stableId);
-  expect(new Set(decisionIds).size).toBe(65);
-  expect(new Set(generatedIds).size).toBe(65);
+  expect(new Set(decisionIds).size).toBe(68);
+  expect(new Set(generatedIds).size).toBe(68);
   expect([...generatedIds].sort()).toEqual([...decisionIds].sort());
 });
 
@@ -41,6 +44,28 @@ test("an unapproved registry project blocks synchronization", () => {
   expect(() => generateProjectCatalog(extra)).toThrow(
     "registry contains projects without publication decisions: unapproved-project",
   );
+});
+
+test("excluded registry projects are decided but never published", () => {
+  expect(projectPublicationExclusions.length).toBeGreaterThan(0);
+  const generatedIds = new Set(generated.map((item) => item.stableId));
+  for (const stableId of projectPublicationExclusions) {
+    expect(generatedIds.has(stableId)).toBe(false);
+  }
+});
+
+test("an exclusion that is also published blocks synchronization", () => {
+  const registry = readFileSync(registryPath, "utf8");
+  expect(() =>
+    generateProjectCatalog(registry, [...projectPublicationExclusions, "abi"]),
+  ).toThrow("project is both published and excluded: abi");
+});
+
+test("an exclusion missing from the registry blocks synchronization", () => {
+  const registry = readFileSync(registryPath, "utf8");
+  expect(() =>
+    generateProjectCatalog(registry, [...projectPublicationExclusions, "no-such-project"]),
+  ).toThrow("publication exclusion missing from registry: no-such-project");
 });
 
 test("generated records expose only the public high-level schema", () => {
@@ -112,7 +137,7 @@ test("atlas search and filters compose and reset to the full catalog", () => {
     publicationClass: "all" as const,
     ecosystem: "all",
   };
-  expect(filterProjectCatalog(projectCatalog, base)).toHaveLength(65);
+  expect(filterProjectCatalog(projectCatalog, base)).toHaveLength(68);
   expect(
     filterProjectCatalog(projectCatalog, { ...base, query: "ABBEY" }).map(
       (project) => project.stableId,

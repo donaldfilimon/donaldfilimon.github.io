@@ -158,6 +158,17 @@
     "publicationClass": "archive"
   },
   {
+    "stableId": "cell-lang",
+    "displayName": "Cell language",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "zig"
+    ],
+    "publicationClass": "active"
+  },
+  {
     "stableId": "cell-machine",
     "displayName": "Cell Machine",
     "lifecycle": "experimental",
@@ -487,6 +498,18 @@
     "publicationClass": "active"
   },
   {
+    "stableId": "mlai-corporation-www",
+    "displayName": "MLAI CORPORATION WWW (second checkout)",
+    "lifecycle": "active",
+    "ownership": "company",
+    "projectKind": "primary",
+    "ecosystems": [
+      "typescript"
+    ],
+    "publicationClass": "active",
+    "primaryStableId": "mlai"
+  },
+  {
     "stableId": "mlai-design-handoff",
     "displayName": "MLAI design handoff (home root)",
     "lifecycle": "archived",
@@ -518,6 +541,17 @@
     "projectKind": "primary",
     "ecosystems": [
       "typescript"
+    ],
+    "publicationClass": "active"
+  },
+  {
+    "stableId": "nyon",
+    "displayName": "NYON",
+    "lifecycle": "active",
+    "ownership": "personal",
+    "projectKind": "primary",
+    "ecosystems": [
+      "rust"
     ],
     "publicationClass": "active"
   },

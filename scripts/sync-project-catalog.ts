@@ -1,7 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { projectPublicationDecisions } from "../content/project-publication";
+import {
+  projectPublicationDecisions,
+  projectPublicationExclusions,
+} from "../content/project-publication";
 import type {
   GeneratedProjectRecord,
   ProjectLifecycle,
@@ -98,7 +101,10 @@ function assertSafeDocument(records: GeneratedProjectRecord[]) {
   }
 }
 
-export function generateProjectCatalog(registryText: string): GeneratedProjectRecord[] {
+export function generateProjectCatalog(
+  registryText: string,
+  exclusions: readonly string[] = projectPublicationExclusions,
+): GeneratedProjectRecord[] {
   const document = Bun.TOML.parse(registryText) as RegistryDocument;
   if (!Array.isArray(document.projects)) {
     throw new Error("registry is missing projects");
@@ -180,7 +186,23 @@ export function generateProjectCatalog(registryText: string): GeneratedProjectRe
     return record;
   });
 
-  const unapproved = [...sourceById.keys()].filter((id) => !decisionIds.has(id));
+  const excluded = new Set<string>();
+  for (const stableId of exclusions) {
+    if (excluded.has(stableId)) {
+      throw new Error(`duplicate publication exclusion: ${stableId}`);
+    }
+    if (decisionIds.has(stableId)) {
+      throw new Error(`project is both published and excluded: ${stableId}`);
+    }
+    if (!sourceById.has(stableId)) {
+      throw new Error(`publication exclusion missing from registry: ${stableId}`);
+    }
+    excluded.add(stableId);
+  }
+
+  const unapproved = [...sourceById.keys()].filter(
+    (id) => !decisionIds.has(id) && !excluded.has(id),
+  );
   if (unapproved.length > 0) {
     throw new Error(
       `registry contains projects without publication decisions: ${unapproved.join(", ")}`,

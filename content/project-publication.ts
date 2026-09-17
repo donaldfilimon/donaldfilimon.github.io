@@ -184,6 +184,35 @@ export const projectPublicationDecisions: ProjectPublicationDecision[] = [
     primaryStableId: "would-you-rather-tfjs",
     approvedLinks: [],
   }),
+  decision("cell-lang", "active"),
+  decision("nyon", "active"),
+  decision("mlai-corporation-www", "active", {
+    primaryStableId: "mlai",
+    approvedLinks: [],
+  }),
+];
+
+/**
+ * Registry projects deliberately kept off the public site (decided
+ * 2026-09-17): private repositories, trees with no GitHub repository, and
+ * public forks of other people's projects. Listing an ID here is a
+ * publication decision, so the sync accepts it without a catalog record.
+ */
+export const projectPublicationExclusions: readonly string[] = [
+  "donald-filimon-sites",
+  "downloads-recovery-abi",
+  "downloads-recovery-abi-2",
+  "downloads-recovery-abi-zig",
+  "downloads-recovery-coreaiassistant",
+  "downloads-recovery-coreaiassistant-2",
+  "downloads-recovery-discord",
+  "livecontainer",
+  "llmcord-upstream-clone",
+  "mlai-research-sites",
+  "mlai-website-app",
+  "neuralnetworkanimation",
+  "unsloth",
+  "wdbx-specimen-studio",
 ];
 
 export const publicationDecisionById = new Map(
