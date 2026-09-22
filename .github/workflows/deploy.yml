@@ -25,31 +25,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      # scripts/check-docs.ts is the single source of truth for the docs/
+      # guard; it imports only node:fs and node:path, so no install is needed.
       - name: Guard published docs
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          html = Path("docs/index.html").read_text(encoding="utf-8")
-          not_found = Path("docs/404.html").read_text(encoding="utf-8")
-          cname = Path("docs/CNAME").read_text(encoding="utf-8").strip()
-          for token in (
-              "location.replace",
-              "star-space-portfolio",
-              "Star Space",
-              "STAR SPACE",
-          ):
-              assert token not in html, token
-          assert "Donald Filimon" in html
-          assert "Land O’ Lakes, Florida" in html
-          assert "Ocala" not in html
-          assert 'id="work"' in html
-          assert 'id="services"' in html
-          assert 'id="contact"' in html
-          for href in ("/#work", "/#services", "/#practice", "/#contact"):
-              assert f'href="{href}"' in not_found, href
-          assert cname == "donaldfilimon.com"
-          print("docs guard ok")
-          PY
+        run: bun scripts/check-docs.ts
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

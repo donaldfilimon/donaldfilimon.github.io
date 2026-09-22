@@ -68,7 +68,7 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 
 ### `scripts/check-docs.ts`
 
-Asserts `docs/index.html`, `docs/404.html`, and `docs/CNAME` exist; index has no Star Space or `location.replace` residue, contains the `work`/`contact`/`services` section ids and the Land O' Lakes, Florida location (not Ocala); 404 has root-qualified nav anchors; CNAME is exactly `donaldfilimon.com`. `.github/workflows/deploy.yml` duplicates these assertions in an inline Python step, so change both when the guard changes.
+Asserts `docs/index.html`, `docs/404.html`, and `docs/CNAME` exist; index has no Star Space or `location.replace` residue, contains the `work`/`contact`/`services` section ids and the Land O' Lakes, Florida location (not Ocala); 404 has root-qualified nav anchors; CNAME is exactly `donaldfilimon.com`. `.github/workflows/deploy.yml` runs this same script (`bun scripts/check-docs.ts`) before uploading, so the script is the only copy of the guard.
 
 ## Pages
 
