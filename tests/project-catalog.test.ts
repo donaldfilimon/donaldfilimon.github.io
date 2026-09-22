@@ -16,7 +16,7 @@ import {
 
 const generated = generatedCatalog as GeneratedProjectRecord[];
 const registryPath =
-  "/Users/donaldfilimon/dev/active/project-registry/registry/projects.toml";
+  "content/registry/projects.toml";
 
 test("publication manifest and generated catalog cover all 68 published projects", () => {
   expect(projectPublicationDecisions).toHaveLength(68);

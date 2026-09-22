@@ -1,0 +1,585 @@
+# Publication snapshot of project-registry registry/projects.toml at commit 796e20a,
+# vendored 2026-09-21 after project-registry moved to ~/Archive/experimental-2026-09-18/.
+# Only the fields scripts/sync-project-catalog.ts reads are kept: published projects carry
+# display_name, project_kind, lifecycle, ownership, ecosystems; excluded projects carry only
+# stable_id. Paths, gates, tags and export policy are deliberately omitted (this repo is public).
+
+[[projects]]
+stable_id = "abbey"
+display_name = "Abbey"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "abbey-bot-rust"
+display_name = "Abbey Bot (Rust)"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "abbey-companion"
+display_name = "AbbeyCompanion"
+project_kind = "primary"
+lifecycle = "retired"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "abbeybot-swift"
+display_name = "AbbeyBot (Swift)"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["swift", "typescript"]
+
+[[projects]]
+stable_id = "abbeybot-vapor-snapshot"
+display_name = "AbbeyBot Vapor source snapshot"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "abi"
+display_name = "ABI"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "agentic"
+display_name = "Agentic"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "alien-invasion"
+display_name = "Alien Invasion"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "blender-config"
+display_name = "Blender configuration"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+
+[[projects]]
+stable_id = "cell-machine"
+display_name = "Cell Machine"
+project_kind = "primary"
+lifecycle = "experimental"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "cell-state-adaptive"
+display_name = "Cell-State Adaptive Problem Solver"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "core-ai-assistant"
+display_name = "CoreAIAssistant"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "custom-perfections"
+display_name = "Custom Perfections"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "company"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "donald-portfolio-tsx"
+display_name = "Donald Portfolio TSX"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "donaldfilimoncom"
+display_name = "Donald Filimon personal site"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "eagle-lsp"
+display_name = "Eagle LSP"
+project_kind = "reference"
+lifecycle = "external"
+ownership = "external"
+
+[[projects]]
+stable_id = "gama-active"
+display_name = "Gama Qt"
+project_kind = "primary"
+lifecycle = "experimental"
+ownership = "personal"
+ecosystems = ["swift", "cpp"]
+
+[[projects]]
+stable_id = "gama-swift"
+display_name = "Gama Swift superseded checkout"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "gama-framework"
+display_name = "Gama Framework"
+project_kind = "exceptional"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "gama-framework-merged-checkout-20260824"
+display_name = "Gama Framework merged checkout"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "game-example"
+display_name = "GameExample"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "hydrocycle"
+display_name = "HydroCycle"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["typescript", "python"]
+
+[[projects]]
+stable_id = "invasion3d"
+display_name = "Invasion3D"
+project_kind = "primary"
+lifecycle = "experimental"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "ladybird"
+display_name = "Ladybird fork"
+project_kind = "reference"
+lifecycle = "active"
+ownership = "external"
+ecosystems = ["cpp", "rust"]
+
+[[projects]]
+stable_id = "lylex"
+display_name = "LYLEX"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "minecraft-server-open"
+display_name = "Minecraft Server Open"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "mlai"
+display_name = "MLAI Platform"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "company"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "mlai-website"
+display_name = "MLAI Website pre-monorepo archive"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "company"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "nabu"
+display_name = "Nabu"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "company"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "paint"
+display_name = "Paint"
+project_kind = "primary"
+lifecycle = "experimental"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "plugins"
+display_name = "Private plugins"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+
+[[projects]]
+stable_id = "project-registry"
+display_name = "Private Project Registry"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["python"]
+
+[[projects]]
+stable_id = "roblox-server-craft"
+display_name = "RobloxServerCraft"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+
+[[projects]]
+stable_id = "spacial3d"
+display_name = "Spacial3D"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "sqlite-docs"
+display_name = "SQLite Documentation"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "swift-discord"
+display_name = "Swift Discord"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "string"
+display_name = "String"
+project_kind = "exceptional"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "mixed"
+display_name = "Mixed"
+project_kind = "exceptional"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "mlai-design-handoff"
+display_name = "MLAI design handoff (home root)"
+project_kind = "exceptional"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "wdbx-rust"
+display_name = "WDBX Rust substrate"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "wdbx-zig-scaffold"
+display_name = "WDBX Zig historical scaffold"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["zig"]
+
+[[projects]]
+stable_id = "webpress"
+display_name = "Webpress"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["typescript", "rust"]
+
+[[projects]]
+stable_id = "workflows-starter-template"
+display_name = "Workflows Starter Template"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "company"
+
+[[projects]]
+stable_id = "would-you-rather-tfjs"
+display_name = "Would You Rather TFJS"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "xrlook"
+display_name = "XRLook"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "cger-english-2026q1"
+display_name = "2026 Q1 CGER English"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["python"]
+
+[[projects]]
+stable_id = "abbey-companion-recovery-4"
+display_name = "AbbeyCompanion recovery 4"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "abby-ai-react19-video"
+display_name = "Abby AI React 19 video recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "abi-swift-recovery"
+display_name = "ABI Swift recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "agnostic-machine-pipeline"
+display_name = "Agnostic Machine pipeline"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["python"]
+
+[[projects]]
+stable_id = "bmct-wolfram-verified"
+display_name = "BMCT 2.0 Wolfram Verified"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["python", "wolfram"]
+
+[[projects]]
+stable_id = "cell-state-adaptive-recovery"
+display_name = "Cell-State Adaptive recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "cell-state-adaptive-variant2-recovery"
+display_name = "Cell-State Adaptive validated variant 2 recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "discordbm-vapor-bot-recovery"
+display_name = "DiscordBM Vapor bot recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "gama-recovery-2"
+display_name = "Gama recovery 2"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "gama-framework-recovery"
+display_name = "Gama Framework recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "gama-recovery"
+display_name = "Gama recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["swift"]
+
+[[projects]]
+stable_id = "green-square-bliss"
+display_name = "Green Square Bliss"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "mesh-terrain-unity"
+display_name = "Mesh Terrain Unity"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["csharp"]
+
+[[projects]]
+stable_id = "ml-public-ops-observation"
+display_name = "ML public operations observation"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "simple-runner-starter"
+display_name = "SimpleRunner Starter"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["gdscript"]
+
+[[projects]]
+stable_id = "stripe-sample-code"
+display_name = "Stripe sample code recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["javascript"]
+
+[[projects]]
+stable_id = "vapor-spec32"
+display_name = "VaporSpec32 recovery"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+
+[[projects]]
+stable_id = "would-you-rather-bun-ts-variant2"
+display_name = "Would You Rather Bun TS variant 2"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "would-you-rather-bun-ts"
+display_name = "Would You Rather Bun TS"
+project_kind = "primary"
+lifecycle = "archived"
+ownership = "personal"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "cell-lang"
+display_name = "Cell language"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["zig"]
+
+[[projects]]
+stable_id = "donald-filimon-sites"
+
+[[projects]]
+stable_id = "livecontainer"
+
+[[projects]]
+stable_id = "mlai-corporation-www"
+display_name = "MLAI CORPORATION WWW (second checkout)"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "company"
+ecosystems = ["typescript"]
+
+[[projects]]
+stable_id = "mlai-research-sites"
+
+[[projects]]
+stable_id = "mlai-website-app"
+
+[[projects]]
+stable_id = "neuralnetworkanimation"
+
+[[projects]]
+stable_id = "nyon"
+display_name = "NYON"
+project_kind = "primary"
+lifecycle = "active"
+ownership = "personal"
+ecosystems = ["rust"]
+
+[[projects]]
+stable_id = "unsloth"
+
+[[projects]]
+stable_id = "wdbx-specimen-studio"
+
+[[projects]]
+stable_id = "llmcord-upstream-clone"
+
+[[projects]]
+stable_id = "downloads-recovery-abi"
+
+[[projects]]
+stable_id = "downloads-recovery-abi-2"
+
+[[projects]]
+stable_id = "downloads-recovery-abi-zig"
+
+[[projects]]
+stable_id = "downloads-recovery-coreaiassistant"
+
+[[projects]]
+stable_id = "downloads-recovery-coreaiassistant-2"
+
+[[projects]]
+stable_id = "downloads-recovery-discord"

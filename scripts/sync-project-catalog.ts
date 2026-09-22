@@ -12,7 +12,7 @@ import type {
   RegistryProjectKind,
 } from "../content/project-types";
 
-const DEFAULT_REGISTRY = "../project-registry/registry/projects.toml";
+const DEFAULT_REGISTRY = "content/registry/projects.toml";
 const DEFAULT_OUTPUT = "content/project-catalog.generated.json";
 const ALLOWED_LIFECYCLES = new Set<ProjectLifecycle>([
   "active",
