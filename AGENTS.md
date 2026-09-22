@@ -32,6 +32,7 @@ bun test -t "atlas search and filters"    # one test by name
 bun run sync:projects        # regenerate content/project-catalog.generated.json from the registry
 bun run sync:projects:check  # verify the committed catalog matches the registry (part of check; fix a failure with sync:projects)
 bun scripts/check-docs.ts    # standalone docs/ guard
+bun scripts/export-identity.ts          # rewrite content/identity.generated.json from content/shared-identity.ts (--check verifies)
 ```
 
 `bun run build` deletes and recreates `docs/`. Preserve existing artifact edits before running it; include regenerated `docs/` in an authorized release commit. Pages uploads that directory and runs only an artifact guard, not app builds/tests. For guide-only edits, `git diff --check` and the read-only `bun scripts/check-docs.ts` avoid export churn.
@@ -46,6 +47,7 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 
 - `app/` — App Router, `output: "export"` + `trailingSlash: true` + unoptimized images in `next.config.ts`.
 - `content/site.ts` — name, links, nav, and the editorial copy for featured projects. Nav hrefs must keep the leading `/` because `docs/404.html` is checked for root-qualified anchors.
+- `content/shared-identity.ts` — the identity fields that were byte-identical with the sibling `../donald-filimon-sites` `content/site.ts` `profile` on 2026-09-21; `site` spreads it. `content/identity.generated.json` is its committed snapshot (`tests/shared-identity.test.ts` fails when stale); the sibling's `content/identity.test.ts` compares its own copy against that file. Neither repo imports the other at build time. Change a shared field here, re-export, then update the sibling.
 - `components/ui/` — shadcn primitives (`components.json` pins the `radix-nova` style). `components/site/` — page chrome, `project-atlas.tsx`, `personalized-work.tsx`.
 - `docs/` — published artifact, committed. `tsconfig.json` and `eslint.config.mjs` both exclude `docs/` and `out/`.
 - `scripts/build-id.ts` hashes sorted source paths/content plus build configs, manifest and lockfile, not Git HEAD, mtimes, or generated output. Extend its input list for new build inputs; preserve reproducible exports (`tests/build-reproducibility.test.ts`).

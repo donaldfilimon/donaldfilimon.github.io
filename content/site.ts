@@ -1,16 +1,11 @@
+import { sharedIdentity } from "./shared-identity";
+
 export const site = {
-  name: "Donald Filimon",
-  fullName: "Donald Joseph Filimon",
+  ...sharedIdentity,
   role: "Independent AI systems engineer",
-  location: "Land O’ Lakes, Florida",
   region: "United States",
-  company: "The Donald Company",
-  availability: "Working globally from Florida",
-  email: "cbkshadow@icloud.com",
   url: "https://donaldfilimon.github.io/",
   domain: "https://donaldfilimon.com",
-  github: "https://github.com/donaldfilimon",
-  linkedIn: "https://linkedin.com/in/donaldfilimon",
   x: "https://x.com/underswitch",
   orgDonaldCompany: "https://github.com/donald-company",
   orgXfoss: "https://github.com/XFOSS",
