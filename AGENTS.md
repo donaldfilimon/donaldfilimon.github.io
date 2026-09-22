@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # AGENTS.md
 
-Local path: `~/dev/active/donaldfilimoncom`. Remote: `donaldfilimon/donaldfilimon.github.io`. This file is canonical for the repository. `CLAUDE.md` points here.
+Local path: `~/dev/active/donaldfilimoncom`. Remote: `donaldfilimon/donaldfilimon.github.io`. This file is canonical for the repository. `CLAUDE.md` points here (`tests/instructions.test.ts` fails if it grows past the pointer form). Keep the Next.js agent-rules block at the top of `AGENTS.md`; `next dev` re-adds it.
 
 ## What this is
 
@@ -51,11 +51,11 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 - `components/ui/` — shadcn primitives (`components.json` pins the `radix-nova` style). `components/site/` — page chrome, `project-atlas.tsx`, `personalized-work.tsx`.
 - `docs/` — published artifact, committed. `tsconfig.json` and `eslint.config.mjs` both exclude `docs/` and `out/`.
 - `scripts/build-id.ts` hashes sorted source paths/content plus build configs, manifest and lockfile, not Git HEAD, mtimes, or generated output. Extend its input list for new build inputs; preserve reproducible exports (`tests/build-reproducibility.test.ts`).
-- `public/CNAME` is `donaldfilimon.com`. Do not enable the Pages custom domain via API until that name resolves to GitHub Pages IPs.
+- `public/CNAME` is `donaldfilimon.com`. Do not enable the Pages custom domain via API until that name resolves to GitHub Pages IPs. Do not attach the domain to the unrelated Vercel project `model-context-protocol-mcp-with-next-js`.
 
 ### Project catalog pipeline (registry → atlas)
 
-1. `scripts/sync-project-catalog.ts` parses the external TOML registry (`../project-registry`, read-only) with `Bun.TOML.parse`.
+1. `scripts/sync-project-catalog.ts` parses the vendored TOML registry (`content/registry/projects.toml` by default; `--registry <path>` overrides) with `Bun.TOML.parse`.
 2. Every registry project must have an explicit `decision(...)` in `content/project-publication.ts` (the publication allowlist, including `approvedLinks`); a registry project without a decision, or a decision without a registry project, fails the sync.
 3. A privacy scrub rejects absolute home paths, `file://`, worktree/branch/dirty metadata, and credential-shaped strings before anything is written.
 4. Output is the sorted, committed `content/project-catalog.generated.json`.

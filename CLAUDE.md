@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-See [AGENTS.md](AGENTS.md) — it is canonical for this repository. Keep the Next.js agent-rules block at the top of `AGENTS.md`; `next dev` re-adds it.
+See [AGENTS.md](AGENTS.md) — canonical.
 
 <!-- machine-git-policy -->
 ## Git workflow (machine policy, 2026-08-27)
@@ -12,4 +12,3 @@ must be merged back into this checkout's default branch, the worktree
 removed, and the branch deleted, before pushing and before the task is
 called done. Full policy: `~/.claude/CLAUDE.md` (*Git discipline*).
 <!-- /machine-git-policy -->
-
