@@ -72,7 +72,7 @@ Asserts `docs/index.html`, `docs/404.html`, and `docs/CNAME` exist; index has no
 
 ## Pages
 
-Keep Pages on **GitHub Actions** (`build_type: workflow`), not a `gh-pages` branch. `.github/workflows/deploy.yml` publishes on `main` pushes or manual dispatch; neither is authorization to skip the local gate.
+Keep Pages on **GitHub Actions** (`build_type: workflow`), not a `gh-pages` branch. `.github/workflows/deploy.yml` publishes on `main` pushes or manual dispatch; neither is authorization to skip the local gate. The job runs on the macOS arm64 self-hosted runner labelled `donaldfilimon.github.io` (needs `brew install gnu-tar`); see `.github/SelfHostedRunner.md`.
 
 <!-- machine-git-policy -->
 ## Git workflow (machine policy, 2026-08-27)
