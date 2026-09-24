@@ -1,5 +1,11 @@
 name: Deploy to GitHub Pages
 
+# Runs on the macOS arm64 self-hosted runner registered to this repository
+# with the label donaldfilimon.github.io (GitHub-hosted jobs cannot start while
+# the account's Actions billing is locked). Only trusted events reach it: this
+# workflow has no pull_request trigger, and the job is gated on push and
+# workflow_dispatch in this repository. Until a runner with these labels is
+# online, the deploy job waits in the queue. See .github/SelfHostedRunner.md.
 on:
   push:
     branches:
@@ -17,13 +23,32 @@ concurrency:
 
 jobs:
   deploy:
+    if: >
+      github.repository == 'donaldfilimon/donaldfilimon.github.io' &&
+      (github.event_name == 'push' ||
+       github.event_name == 'workflow_dispatch')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64, donaldfilimon.github.io]
     steps:
+      # actions/upload-pages-artifact archives with `gtar` (GNU tar) when
+      # runner.os is macOS, because bsdtar lacks --hard-dereference. Stock
+      # macOS ships only bsdtar, so fail fast with the fix instead of failing
+      # after Pages has been configured.
+      - name: Check runner prerequisites
+        run: |
+          if ! command -v gtar >/dev/null 2>&1; then
+            echo "::error::gtar (GNU tar) is not on PATH. Run 'brew install gnu-tar' on the runner host; see .github/SelfHostedRunner.md."
+            exit 1
+          fi
+          gtar --version | head -n 1
+
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # Nothing in this job pushes; the Pages deploy uses the OIDC token.
+          persist-credentials: false
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
