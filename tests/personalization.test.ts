@@ -8,6 +8,7 @@ import {
   PERSONALIZATION_FEATURE_DIMENSION,
   PERSONALIZATION_MODEL_URL,
   projectFeatureVector,
+  queuePreferenceSignal,
   scoreProjects,
   updatePreferenceVector,
 } from "../lib/project-personalization";
@@ -62,6 +63,32 @@ test("the same stored weights produce deterministic ranking with editorial tie-b
   );
   expect(first).toEqual(second);
   expect(first[0]).toBe("abi");
+});
+
+test("a failed preference update does not block later queued signals", async () => {
+  const applied: string[] = [];
+  const failures: string[] = [];
+  let queue = Promise.resolve();
+
+  queue = queuePreferenceSignal(
+    queue,
+    async () => {
+      throw new Error("temporary model failure");
+    },
+    () => failures.push("failed"),
+  );
+  queue = queuePreferenceSignal(
+    queue,
+    async () => {
+      applied.push("next signal");
+    },
+    () => failures.push("failed again"),
+  );
+
+  await queue;
+
+  expect(failures).toEqual(["failed"]);
+  expect(applied).toEqual(["next signal"]);
 });
 
 test("personalizer dynamically imports TensorFlow only after consent and has no transport", () => {

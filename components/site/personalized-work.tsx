@@ -15,6 +15,7 @@ import {
   PERSONALIZATION_STATE_KEY,
   PORTFOLIO_SIGNAL_EVENT,
   projectFeatureVector,
+  queuePreferenceSignal,
   type PersonalizationStorageState,
   type PortfolioSignalDetail,
   updatePreferenceVector,
@@ -280,6 +281,11 @@ export function PersonalizedWork({ projects }: { projects: PublicProjectRecord[]
         schemaVersion: PERSONALIZATION_SCHEMA_VERSION,
         signalCount: nextCount,
       });
+      setStatus(
+        persistenceRef.current
+          ? "Personalization is on. The model stays in this browser’s IndexedDB."
+          : "Personalization is on for this session. Browser storage is unavailable.",
+      );
     },
     [projectById, rankWithModel],
   );
@@ -295,7 +301,14 @@ export function PersonalizedWork({ projects }: { projects: PublicProjectRecord[]
     const handler = (event: Event) => {
       const detail = (event as CustomEvent<PortfolioSignalDetail>).detail;
       if (!detail) return;
-      queueRef.current = queueRef.current.then(() => applySignal(detail));
+      queueRef.current = queuePreferenceSignal(
+        queueRef.current,
+        () => applySignal(detail),
+        () =>
+          setStatus(
+            "An interaction could not update recommendations. You can keep browsing; future interactions will retry.",
+          ),
+      );
     };
     window.addEventListener(PORTFOLIO_SIGNAL_EVENT, handler);
     return () => window.removeEventListener(PORTFOLIO_SIGNAL_EVENT, handler);

@@ -155,3 +155,11 @@ export function dispatchPortfolioSignal(detail: PortfolioSignalDetail) {
     new CustomEvent<PortfolioSignalDetail>(PORTFOLIO_SIGNAL_EVENT, { detail }),
   );
 }
+
+export function queuePreferenceSignal(
+  queue: Promise<void>,
+  update: () => Promise<void>,
+  onError: () => void,
+) {
+  return queue.catch(() => undefined).then(update).catch(onError);
+}
