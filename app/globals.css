@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* sites/ is a separate site with its own Tailwind build; keep its classes out of this one. */
+@source not "../sites";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

@@ -1,0 +1,4 @@
+# sites/ is the folded Vinext site; its *.test.ts(x) files are Vitest suites run
+# by its own npm gate, so bun test only discovers this repo's tests/.
+[test]
+root = "tests"

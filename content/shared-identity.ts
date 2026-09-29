@@ -1,9 +1,9 @@
-// Identity fields that are byte-identical in this repo's `content/site.ts` and
-// the sibling OpenAI Sites repo's `content/site.ts` (`profile`). Only fields
+// Identity fields that are byte-identical in this site's `content/site.ts` and
+// the OpenAI Sites portfolio's `sites/content/site.ts` (`profile`). Only fields
 // that already matched were extracted; differing fields stay local to each
-// repo. `bun scripts/export-identity.ts` writes the JSON snapshot
-// (`content/identity.generated.json`) that the sibling's drift test compares
-// against. Neither repo imports the other at build time.
+// site. `bun scripts/export-identity.ts` writes the JSON snapshot
+// (`content/identity.generated.json`) that `sites/content/identity.test.ts`
+// compares its own copy against. Neither site imports the other at build time.
 export const sharedIdentity = {
   name: "Donald Filimon",
   fullName: "Donald Joseph Filimon",

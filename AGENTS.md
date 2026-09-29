@@ -47,7 +47,7 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 
 - `app/` — App Router, `output: "export"` + `trailingSlash: true` + unoptimized images in `next.config.ts`.
 - `content/site.ts` — name, links, nav, and the editorial copy for featured projects. Nav hrefs must keep the leading `/` because `docs/404.html` is checked for root-qualified anchors.
-- `content/shared-identity.ts` — the identity fields that were byte-identical with the sibling `../donald-filimon-sites` `content/site.ts` `profile` on 2026-09-21; `site` spreads it. `content/identity.generated.json` is its committed snapshot (`tests/shared-identity.test.ts` fails when stale); the sibling's `content/identity.test.ts` compares its own copy against that file. Neither repo imports the other at build time. Change a shared field here, re-export, then update the sibling.
+- `content/shared-identity.ts` — the identity fields that were byte-identical with `sites/content/site.ts` `profile` on 2026-09-21; `site` spreads it. `content/identity.generated.json` is its committed snapshot (`tests/shared-identity.test.ts` fails when stale); `sites/content/identity.test.ts` compares `sites/content/identity.generated.json` against that file byte for byte. Neither site imports the other at build time. Change a shared field here, re-export, copy the snapshot to `sites/content/identity.generated.json`, then update `sites/content/site.ts`.
 - `components/ui/` — shadcn primitives (`components.json` pins the `radix-nova` style). `components/site/` — page chrome, `project-atlas.tsx`, `personalized-work.tsx`.
 - `docs/` — published artifact, committed. `tsconfig.json` and `eslint.config.mjs` both exclude `docs/` and `out/`.
 - `scripts/build-id.ts` hashes sorted source paths/content plus build configs, manifest and lockfile, not Git HEAD, mtimes, or generated output. Extend its input list for new build inputs; preserve reproducible exports (`tests/build-reproducibility.test.ts`).
@@ -69,6 +69,15 @@ Routes are `/` (`app/page.tsx`), the 404 page, `robots.txt`, and `sitemap.xml`; 
 ### `scripts/check-docs.ts`
 
 Asserts `docs/index.html`, `docs/404.html`, and `docs/CNAME` exist; index has no Star Space or `location.replace` residue, contains the `work`/`contact`/`services` section ids and the Land O' Lakes, Florida location (not Ocala); 404 has root-qualified nav anchors; CNAME is exactly `donaldfilimon.com`. `.github/workflows/deploy.yml` runs this same script (`bun scripts/check-docs.ts`) before uploading, so the script is the only copy of the guard.
+
+## `sites/` (OpenAI Sites portfolio)
+
+`sites/` is a second, independent site: the Vinext (Vite + Next-compatible) + React 19 + base-ui/shadcn portfolio for OpenAI Sites / Cloudflare Workers, formerly the private repository `donaldfilimon/donald-filimon-sites`, folded in with its full history by `git subtree add --prefix=sites` on 2026-09-28. `sites/AGENTS.md` is canonical inside it.
+
+- **Separate toolchain.** It is an npm project (`sites/package-lock.json`), not bun, and shares no build, dependency or output with the root site. Run its gate from `sites/`: `npm ci`, then `npm run check` (`lint && test && build`; lint ignores `components/ui/**`, `components/blocks/**`, `app/blocks/**`, so green lint covers less than it looks).
+- **Fenced out of the root gate.** `tsconfig.json` `exclude`, the eslint `globalIgnores`, `bunfig.toml` (`[test] root = "tests"`; without it `bun test` also collects the Vitest files under `sites/`) and `@source not "../sites"` in `app/globals.css` (Tailwind v4 otherwise scans every tracked file) keep it out of `bun run check`. `scripts/build-id.ts` does not hash `sites/`, and nothing in it reaches `docs/`. Keep all four exclusions when adding root tooling that walks the tree.
+- **CI.** `.github/workflows/sites-check.yml` runs its gate on the same self-hosted runner for pushes to `main` and same-repo PRs that touch `sites/**`, and for manual dispatches. GitHub ignores workflows under `sites/.github/`, so do not recreate one there.
+- **This repository is public.** `sites/` came from a private repository, and everything in it, history included, is published with this one. Never commit `.env*`, `.dev.vars`, Wrangler account or zone ids, or tokens under `sites/`. `sites/.openai/hosting.json` (OpenAI Sites project id) and `sites/.design-sync/config.json` (design-sync project id) are tool-managed identifiers, not credentials.
 
 ## Pages
 

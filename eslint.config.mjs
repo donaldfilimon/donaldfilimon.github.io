@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "docs/**",
     "build/**",
     "next-env.d.ts",
+    // sites/ is the folded Vinext site with its own oxlint gate.
+    "sites/**",
   ]),
 ]);
 

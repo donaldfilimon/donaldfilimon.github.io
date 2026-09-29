@@ -6,8 +6,8 @@ import { site } from "../content/site";
 import { identitySnapshotPath, renderIdentitySnapshot } from "../scripts/export-identity";
 
 test("committed identity snapshot matches content/shared-identity.ts", () => {
-  // Fix a failure with `bun scripts/export-identity.ts`; the sibling Sites repo
-  // compares its copy against this file.
+  // Fix a failure with `bun scripts/export-identity.ts`; sites/ compares its
+  // copy against this file (sites/content/identity.test.ts).
   expect(readFileSync(identitySnapshotPath, "utf8")).toBe(renderIdentitySnapshot());
 });
 

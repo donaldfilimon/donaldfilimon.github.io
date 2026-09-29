@@ -1,0 +1,67 @@
+name: Sites check
+
+# Gate for sites/, the OpenAI Sites (Vinext + Cloudflare Workers) portfolio
+# folded into this repository on 2026-09-28. It is an npm project with its own
+# lockfile and gate, independent of the root bun/Next.js build that deploy.yml
+# publishes, so it runs only when sites/ (or this workflow) changes.
+#
+# Only trusted events reach the macOS arm64 self-hosted runner: pushes to main,
+# manual dispatches, and pull requests whose head branch is in this repository.
+# Fork PRs get no job at all (GitHub-hosted jobs cannot start while the
+# account's Actions billing is locked, and untrusted code must never reach the
+# self-hosted machine). Runner setup: .github/SelfHostedRunner.md.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "sites/**"
+      - ".github/workflows/sites-check.yml"
+  pull_request:
+    paths:
+      - "sites/**"
+      - ".github/workflows/sites-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One self-hosted runner serves this repository (shared with the Pages deploy),
+# so a superseded PR run should not hold it; pushes to main always finish.
+concurrency:
+  group: sites-check-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    if: >
+      github.repository == 'donaldfilimon/donaldfilimon.github.io' &&
+      (github.event_name == 'push' ||
+       github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'pull_request' &&
+        github.event.pull_request.head.repo.full_name == github.repository))
+    runs-on: [self-hosted, macOS, ARM64, donaldfilimon.github.io]
+    defaults:
+      run:
+        working-directory: sites
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: sites/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      # `npm run check` (lint, test, build) is the local contract. The identity
+      # drift test compares sites/content/identity.generated.json with the
+      # root content/identity.generated.json, which this checkout contains.
+      - name: Check
+        run: npm run check

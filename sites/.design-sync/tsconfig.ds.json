@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["./*"],
+      "next/link": ["./test/next-link.tsx"],
+      "next/navigation": ["./test/next-navigation.ts"]
+    }
+  }
+}
