@@ -45,7 +45,7 @@
     "zod": "^4.5.4"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
+    "@cloudflare/vite-plugin": "1.62.0",
     "@cloudflare/workers-types": "4.20260515.1",
     "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
@@ -64,7 +64,7 @@
     "typescript": "5.9.3",
     "vite": "8.0.13",
     "vitest": "^3.2.7",
-    "wrangler": "4.92.0"
+    "wrangler": "4.143.0"
   },
   "type": "module"
 }
